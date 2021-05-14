@@ -96,10 +96,10 @@ export default function CaseStudies() {
         <Switch>
             <Route exact path={match.url}>
                 <ContentBlock>
-                    <h1 className="content__block__header">CASE STUDIES</h1>
+                    <h1 className="content__block__heading">CASE STUDIES</h1>
                     <div  className="content__card__container">
-                        <ContentCard title={caseStudies[0].title} content={caseStudies[0]} />
-                        <ContentCard title={caseStudies[1].title} content={caseStudies[1]} />
+                        <ContentCard type="image" title={caseStudies[0].title} content={caseStudies[0]} />
+                        <ContentCard type="image" title={caseStudies[1].title} content={caseStudies[1]} />
                     </div>
                 </ContentBlock>
             </Route>
