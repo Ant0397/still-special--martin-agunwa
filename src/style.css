@@ -347,3 +347,16 @@ a.social {
     font-family: 'Roboto', sans-serif;
     color: var(--clr-highlight);
 }
+
+.carousel__strip {
+    display: flex;
+    padding: 4em;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel__container {
+    position: relative;
+    margin: 0 2em;
+    width: 30vw;
+}

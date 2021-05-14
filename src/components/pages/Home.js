@@ -10,6 +10,7 @@ import downSyndrome from '../../assets/0908b4c858c2438db45e303fafbde49b.jpg'
 import hero from '../../assets/thumbnail_DSC_0263.jpg'
 import ContentBlock from '../ContentBlock'
 import Quote from '../Quote'
+import CarouselStrip from '../CarouselStrip'
 
 export default function Home() {
     const images = {
@@ -49,17 +50,17 @@ export default function Home() {
 
     return (
         <div>
-            {/* <AutoCarousel images={[images.waterImg, images.birdsImg, images.fishImg]} /> */}
-
             <ContentBlock theme="dark" media={[images.heroImg]} mediaPosition="right">
                 <p className="text-large">Public relations professional with a good grasp of marketing communications, event planning, corporate messaging and strategic branding. Possesses excellent knowledge of organization and people management as well as exceptional writing, speaking and editing skills and strong work ethic.</p>
             </ContentBlock>
             
-            <AutoCarousel images={[images.cogDisabilitiesHeroImg]}>
+            {/* <AutoCarousel images={[images.cogDisabilitiesHeroImg]}>
                 <h2>WHAT ARE COGNITIVE DISABILITIES</h2>
-            </AutoCarousel>
+            </AutoCarousel> */}
 
             <Quote theme="dark" text="Live for yourself and you will live in vain; Live for others and you will live again." author="Bob Marley" />
+
+            <CarouselStrip />
         </div>
     )
 }
