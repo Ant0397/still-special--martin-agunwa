@@ -12,6 +12,8 @@
     --fw-regular: 400;
     --fw-bold: 700;
     --fw-black: 900;
+    --content-card-image-width: 350px;
+    --content-card-image-height: 200px;
 }
 
 body {
@@ -110,47 +112,6 @@ a.social {
 .nav__link--active {
     color: var(--clr-highlight);
     border-bottom: 1px solid var(--clr-highlight);
-}
-
-.carousel__container {
-    position: relative;
-}
-
-.carousel__content__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-}
-
-.carousel__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid white;
-    color: white;
-    padding: 3em 5em;
-    font-size: 1.5rem;
-}
-
-.carousel__content > h2 {
-    font-weight: var(--fw-bold);
-    margin-bottom: .5em;
-}
-
-.carousel__content > p {
-    font-weight: var(--fw-regular);
-    font-size: 1rem;
-    margin: .25em 0;
-}
-
-.carousel__content > p:last-of-type {
-    margin-bottom: 3em;
 }
 
 .btn {
@@ -282,14 +243,16 @@ a.social {
     max-width: 20ch;
 }
 
-.video {
+.content__card__video {
     cursor: pointer;
     background-color: black;
+    width: var(--content-card-image-width) !important;
+    height: var(--content-card-image-height) !important;    
 }
 
 .content__card__image {
-    width: 350px;
-    height: 200px;
+    width: var(--content-card-image-width);
+    height: var(--content-card-image-height);
     object-fit: contain;
     background-color: transparent;
 }
@@ -358,5 +321,15 @@ a.social {
 .carousel__container {
     position: relative;
     margin: 0 2em;
-    width: 30vw;
+    width: 28vw;
+}
+
+.content__card--carousel {
+    width: 25vw;
+}
+
+.content__card__image--carousel,
+.content__card__video--carousel {
+    width: 300px;
+    height: 150px;
 }

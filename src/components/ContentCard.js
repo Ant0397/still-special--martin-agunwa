@@ -2,7 +2,9 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import { useHistory } from 'react-router'
 
-export default function ContentCard({ type, content, title }) {
+// carouselStrip prop applies classes to style component if it forms part of a carousel strip
+// type applies classes to style component depending on if it contains an image or video (images link to the article in question, videos are just playable)
+export default function ContentCard({ carouselStrip, type, content, title }) {
     const history = useHistory()
 
     function preventRightClick(e) {
@@ -14,12 +16,12 @@ export default function ContentCard({ type, content, title }) {
     }
 
     return (
-        <div onClick={redirect} className={`content__card content__card--${type}`}>
+        <div onClick={redirect} className={`content__card content__card--${type} content__card--${carouselStrip}`}>
             <h2 className='content__card__heading'>{title}</h2>
             { type == 'video' ?
-                <ReactPlayer controls={true} width="350px" height="200px" onContextMenu={preventRightClick} className="video" url={content} />
+                <ReactPlayer controls={true} onContextMenu={preventRightClick} className={`content__card__video content__card__video--${carouselStrip}`} url={content} />
             : 
-                <img className="content__card__image" src={content.images[0].src} alt={content.images[0].alt} />
+                <img className={`content__card__image content__card__image--${carouselStrip}`} src={content.images[0].src} alt={content.images[0].alt} />
             }
         </div>
     )
