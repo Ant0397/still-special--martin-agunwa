@@ -5,7 +5,7 @@ import Header from './components/Header'
 import About from './components/pages/About'
 import Campaigns from './components/pages/Campaigns'
 import CaseStudies from './components/pages/CaseStudies'
-import Footer from './Footer'
+import Footer from './components/Footer'
 import Blog from './components/pages/Blog'
 
 export default function App() {

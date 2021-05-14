@@ -3,10 +3,11 @@ import ContentBlock from '../ContentBlock'
 import cv from '../../assets/CV-2.pdf'
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 export default function CV() {
     const [numPages, setNumPages] = useState(null)
+    const history = useHistory()
 
     const options = {
         cMapUrl: 'cmaps/',
@@ -19,6 +20,7 @@ export default function CV() {
 
     return (
         <ContentBlock>
+            <button onClick={() => history.goBack()} className="btn btn--primary">Back</button>
             <h1 className="content__block__heading">CV</h1>
             <Document file={cv} onLoadError={console.error} onLoadSuccess={onLoadSuccess} options={options}>
                 { numPages ? 

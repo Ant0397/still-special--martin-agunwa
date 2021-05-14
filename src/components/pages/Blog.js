@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Switch, useRouteMatch } from 'react-router'
 import ContentBlock from '../ContentBlock'
 import ContentCard from '../ContentCard'

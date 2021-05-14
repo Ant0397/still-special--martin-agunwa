@@ -25,10 +25,10 @@ export default function NavBar() {
             path: '/case-study',
             text: 'Case Study',
         },
-        {
-            path: '/contact',
-            text: 'Contact',
-        },
+        // {
+        //     path: '/contact',
+        //     text: 'Contact',
+        // },
         {
             path: '/blog',
             text: 'Blog',

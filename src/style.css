@@ -179,10 +179,6 @@ a.social {
     font-size: 1rem;
 }
 
-.btn--back {
-    align-self: flex-start;
-}
-
 .content__block {
     display: flex;
     justify-content: center;
@@ -270,31 +266,24 @@ a.social {
     box-shadow: 0 5px 10px black;
 }
 
+.content__card--image {
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.content__card--image:hover {
+    transform: scale(1.05);
+    opacity: .75;
+}
+
 .content__card__heading {
     margin-bottom: 1em;
     font-size: 1.75rem;
     max-width: 20ch;
-    cursor: pointer;
-}
-
-.content__card__heading:hover {
-    text-decoration: underline;
-}
-
-.content__card__heading--video {
-    cursor: default !important;
-}
-
-.content__card__heading--video:hover {
-    text-decoration: none !important;
-}
-
-.video,
-.content__card__image {
-    cursor: pointer;
 }
 
 .video {
+    cursor: pointer;
     background-color: black;
 }
 
@@ -305,8 +294,7 @@ a.social {
     background-color: transparent;
 }
 
-.video:hover,
-.content__card__image:hover {
+.video:hover {
     opacity: .75;
 }
 
@@ -354,7 +342,7 @@ a.social {
 }
 
 .quote__author {
-    margin-left: 2em;
+    margin: 0 2em;
     font-size: 1.5rem;
     font-family: 'Roboto', sans-serif;
     color: var(--clr-highlight);
