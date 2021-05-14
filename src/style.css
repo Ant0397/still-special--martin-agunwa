@@ -262,11 +262,12 @@ a.social {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    background-color: var(--clr-hightlight-transparent);
+    background: linear-gradient(to right, var(--clr-hightlight-transparent), #fcc42b9b);
     padding: 2em;
     margin: .5em;
     border-radius: 20px;
     width: 30vw;
+    box-shadow: 0 5px 10px black;
 }
 
 .content__card__heading {
