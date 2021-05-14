@@ -19,7 +19,7 @@ export default function CV() {
 
     return (
         <ContentBlock>
-            <h1 className="content__block__header">CV</h1>
+            <h1 className="content__block__heading">CV</h1>
             <Document file={cv} onLoadError={console.error} onLoadSuccess={onLoadSuccess} options={options}>
                 { numPages ? 
                     Array.from(new Array(numPages), (el, index) => (

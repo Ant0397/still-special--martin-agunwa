@@ -102,10 +102,10 @@ export default function Blog() {
         <Switch>
             <Route exact path={match.url}>
                 <ContentBlock>
-                    <h1 className="content__block__header">BLOG</h1>
+                    <h1 className="content__block__heading">BLOG</h1>
                     <div  className="content__card__container">
                         { articles.map(article => (
-                            <ContentCard title={article.title} content={article} />
+                            <ContentCard type="image" title={article.title} content={article} />
                         )) }
                     </div>
                 </ContentBlock>

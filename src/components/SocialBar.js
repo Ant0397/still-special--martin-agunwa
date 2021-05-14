@@ -2,11 +2,6 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function SocialBar({ icons }) {
-    function redirect(e) {
-       let tag = document.querySelector(`#${e.target.id} > a`)
-       console.log(tag)
-    }
-    
     return (
         <div>
             { icons ? 

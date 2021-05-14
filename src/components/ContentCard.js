@@ -14,10 +14,10 @@ export default function ContentCard({ type, content, title }) {
     }
 
     return (
-        <div className="content__card">
-            <h2 onClick={redirect} className={`header--${type}`}>{title}</h2>
+        <div className={`content__card`}>
+            <h2 onClick={redirect} className={`content__card__heading content__card__heading--${type}`}>{title}</h2>
             { type == 'video' ?
-                <ReactPlayer controls={true} width="97%" onContextMenu={preventRightClick} className="video" url={content} />
+                <ReactPlayer controls={true} width="350px" height="200px" onContextMenu={preventRightClick} className="video" url={content} />
             : 
                 <img onClick={redirect} className="content__card__image" src={content.images[0].src} alt={content.images[0].alt} />
             }

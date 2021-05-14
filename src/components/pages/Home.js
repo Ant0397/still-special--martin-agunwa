@@ -9,6 +9,7 @@ import cerebralPalsy from '../../assets/a2f61e98656042c891462792a182518f.jpg'
 import downSyndrome from '../../assets/0908b4c858c2438db45e303fafbde49b.jpg'
 import hero from '../../assets/thumbnail_DSC_0263.jpg'
 import ContentBlock from '../ContentBlock'
+import Quote from '../Quote'
 
 export default function Home() {
     const images = {
@@ -58,15 +59,7 @@ export default function Home() {
                 <h2>WHAT ARE COGNITIVE DISABILITIES</h2>
             </AutoCarousel>
 
-            {/* <ContentBlock theme="dark" media={[images.autismImg]} mediaPosition="right">
-                <h2 className="content__block__header">AUTISM</h2>
-                <p>We want all of our customers to experience the impressive level of professionalism when working with Chukwuemeka Martin Agunwa. All of our services, especially this one, exist to make your life easier and stress free. You can trust us to supply you with the best products, as well as top quality customer service.</p>
-            </ContentBlock>
-
-            <ContentBlock theme="dark" media={[images.cerbralPalsyImg]} mediaPosition="left">
-                <h2 className="content__block__header">CEREBRAL PALSY</h2>
-                <p>Frequently utilized by most of our customers, this service has been essential to success on many occasions. When it comes to all of our services, you can count on us to take care of your every need. We pride ourselves on our exceptional customer service, and guarantee you’ll love working with our team. Let us know how we can assist you today.</p>
-            </ContentBlock> */}
+            <Quote theme="dark" text="Live for yourself and you will live in vain; Live for others and you will live again." author="Bob Marley" />
         </div>
     )
 }
