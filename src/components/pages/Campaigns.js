@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { VideoContext } from '../../context/VideoContext'
 import ContentBlock from '../ContentBlock'
 import ContentCard from '../ContentCard'
 
 export default function Campaigns() {
+    const videos = useContext(VideoContext)
+
     return (
         <ContentBlock>
             <h1 className="content__block__heading">STILL SPECIAL CAMPAIGN</h1>
@@ -12,9 +15,13 @@ export default function Campaigns() {
             <p>This campaign seeks to call attention to the plight of special needs children in Nigeria and makes a case for an end to their stigmatization while calling for their equal integration into society.</p>
             <br></br>
             <div className="content__card__container">
-                <ContentCard type="video" title="Still Special - Visualised Audio" content={visualisedAudio} />
-                <ContentCard type="video" title="Still Special - Human Interest Story" content={interview} />
-                <ContentCard type="video" title="Still Special - Instagram Story" content="https://youtu.be/6LjNQRADMpk" />
+                { videos ? 
+                    videos.map(video => (
+                        <ContentCard type="video" title={video.title} content={video} />
+                    ))    
+                :
+                    null
+                }
             </div>
         </ContentBlock>
     )

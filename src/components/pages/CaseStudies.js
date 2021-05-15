@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Route, Switch, useHistory, useRouteMatch } from 'react-router'
+import { Route, Switch, useRouteMatch } from 'react-router'
 import ContentBlock from '../ContentBlock'
 import ContentCard from '../ContentCard'
 import lekkiImg from '../../assets/Lekki.png'

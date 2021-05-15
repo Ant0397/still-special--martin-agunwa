@@ -6,7 +6,7 @@ export default function ContentBlock({ theme, children, media, mediaPosition }) 
             { media && mediaPosition == 'left' ?
                 <div className="content__block__media">
                     { media.map(item => (
-                        <img src={item.image} alt={item.alt} />
+                        <img src={item.src} alt={item.alt} />
                     )) }
                 </div>
             : 
@@ -20,7 +20,7 @@ export default function ContentBlock({ theme, children, media, mediaPosition }) 
             { media && mediaPosition == 'right' ?
                 <div className="content__block__media">
                     { media.map(item => (
-                        <img src={item.image} alt={item.alt} />
+                        <img src={item.src} alt={item.alt} />
                     )) }
                 </div>
             : 
