@@ -19,7 +19,7 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.(png|jpe?g|pdf|mp4)$/,
+                test: /\.(png|jpe?g|pdf|mp4)$/i,
                 use: 'file-loader'
             }
         ]

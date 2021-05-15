@@ -1,65 +1,173 @@
-import React from 'react'
-import AutoCarousel from '../AutoCarousel'
-import water from '../../assets/4b9ac2a8513d4218b4e7211e83b1bdbd.jpg'
-import birds from '../../assets/11d09274fb8b4eceb34b6a8b6d16e8b5.jpeg'
-import fish from '../../assets/eadb0412451740f4ad9a763f9a358ddc.jpg'
-import cogDisabilitiesHero from '../../assets/b90d69_ffccad9d02e94eff9b760667e296a270_mv2.jpg'
-import autism from '../../assets/21276e9bb2a04809a76f2a7bfe161219.jpg'
-import cerebralPalsy from '../../assets/a2f61e98656042c891462792a182518f.jpg'
-import downSyndrome from '../../assets/0908b4c858c2438db45e303fafbde49b.jpg'
-import hero from '../../assets/thumbnail_DSC_0263.jpg'
+import React, { useContext } from 'react'
 import ContentBlock from '../ContentBlock'
 import Quote from '../Quote'
+import CarouselStrip from '../carousel/CarouselStrip'
+import { BlogContext } from '../../context/BlogContext'
+import { VideoContext } from '../../context/VideoContext'
+import carouselImage1 from '../../assets/slides/20191102_160240.jpg'
+import carouselImage2 from '../../assets/slides/20191116_100837.jpg'
+import carouselImage3 from '../../assets/slides/20191116_123414.jpg'
+import carouselImage4 from '../../assets/slides/20191116_123421.jpg'
+import carouselImage5 from '../../assets/slides/20191207_083856.jpg'
+import carouselImage6 from '../../assets/slides/20201016_175254.jpg'
+import carouselImage7 from '../../assets/slides/20201016_175308.jpg'
+import carouselImage8 from '../../assets/slides/20201016_175319.jpg'
+import carouselImage9 from '../../assets/slides/DSC_0312.JPG'
+import carouselImage10 from '../../assets/slides/DSC_0356.JPG'
+import carouselImage11 from '../../assets/slides/DSC_0374.JPG'
+import carouselImage12 from '../../assets/slides/DSC_0437.JPG'
+import carouselImage13 from '../../assets/slides/DSC_0442.JPG'
+import carouselImage15 from '../../assets/slides/IMG-20190128-WA0000.jpg'
+import carouselImage16 from '../../assets/slides/IMG-20190307-WA0000.jpg'
+import carouselImage17 from '../../assets/slides/IMG-20190307-WA0002.jpg'
+import carouselImage18 from '../../assets/slides/IMG-20190626-WA0014.jpg'
+import carouselImage19 from '../../assets/slides/IMG-20191102-WA0015.jpg'
+import carouselImage20 from '../../assets/slides/IMG-20191102-WA0019.jpg'
+import carouselImage21 from '../../assets/slides/IMG-20191107-WA0010.jpg'
+import carouselImage22 from '../../assets/slides/IMG-20191201-WA0005.jpg'
+import carouselImage23 from '../../assets/slides/IMG-20200301-WA0000.jpg'
+import carouselImage24 from '../../assets/slides/IMG-20200731-WA0004.jpg'
+import carouselImage25 from '../../assets/slides/IMG-20201013-WA0019.jpg'
+import carouselImage26 from '../../assets/slides/IMG-20201013-WA0026.jpg'
+import hero from '../../assets/thumbnail_DSC_0263.jpg'
 
-export default function Home() {
-    const images = {
-        autismImg: {
-            image: autism,
-            alt: 'Autism'
-        },
-        cerbralPalsyImg: {
-            image: cerebralPalsy,
-            alt: 'Cerebral Palsy'
-        },
-        downSyndromeImg: {
-            image: downSyndrome,
-            alt: 'Down\'s Syndrome'
-        },
-        heroImg: {
-            image: hero,
-            alt: 'Headshot of Martin Agunwa'
-        },
-        cogDisabilitiesHeroImg: {
-            image: cogDisabilitiesHero,
-            alt: 'Cognitive Disabilities'
-        },
-        waterImg: {
-            image: water,
-            alt: 'Water'
-        },
-        birdsImg: {
-            image: birds,
-            alt: 'Birds'
-        },
-        fishImg: {
-            image: fish,
-            alt: 'Fish'
-        }
+
+export default function Home({ theme }) {
+    let blogs = useContext(BlogContext)
+    let videos = useContext(VideoContext)
+
+    let heroImage = {
+        src: hero,
+        alt: 'Headshot of Martin Agunwa'
     }
+
+    let carouselImages = [
+        {
+            src: carouselImage1,
+            alt: 'Martin standing with a team holding #ClaimingOurSpace signs'
+        },
+        {
+            src: carouselImage2,
+            alt: 'Martin with a croud of people emceeing'
+        },
+        {
+            src: carouselImage3,
+            alt: 'Martin with two other people broadcasting in a radio station'
+        },
+        {
+            src: carouselImage4,
+            alt: 'Martin with two other people broadcasting in a radio station'
+        },
+        {
+            src: carouselImage5,
+            alt: 'Selfshot of Martin at a road safety awareness event'
+        },
+        {
+            src: carouselImage6,
+            alt: 'Martin holding a sign advocating against police brutality'
+        },
+        {
+            src: carouselImage7,
+            alt: 'Martin holding a sign advocating against police brutality'
+        },
+        {
+            src: carouselImage8,
+            alt: 'Martin holding a sign advocating against police brutality'
+        },
+        {
+            src: carouselImage9,
+            alt: 'Martin speaking to an audience'
+        },
+        {
+            src: carouselImage10,
+            alt: 'A photo of Martin with organisers of an event'
+        },
+        {
+            src: carouselImage11,
+            alt: 'Martin speaking to the organisers of an event'
+        },
+        {
+            src: carouselImage12,
+            alt: 'Martin at Jesus Kids\' Home Nigeria'
+        },
+        {
+            src: carouselImage13,
+            alt: 'Martin at Jesus Kids\' Home Nigeria'
+        },
+        {
+            src: carouselImage15,
+            alt: 'Martin speaking at an event'
+        },
+        {
+            src: carouselImage16,
+            alt: 'Martin speaking at an event'
+        },
+        {
+            src: carouselImage17,
+            alt: 'Martin speaking at an event'
+        },
+        {
+            src: carouselImage18,
+            alt: 'Martin speaking at an event'
+        },
+        {
+            src: carouselImage19,
+            alt: 'Martin planning #ClaimingOurSpace event'
+        },
+        {
+            src: carouselImage20,
+            alt: 'Martin standing with a team holding #ClaimingOurSpace signs'
+        },
+        {
+            src: carouselImage21,
+            alt: 'Martin planning #ClaimingOurSpace event'
+        },
+        {
+            src: carouselImage22,
+            alt: 'Martin speaking at an event'
+        },
+        {
+            src: carouselImage23,
+            alt: 'Martin standing on a hill with a team of people'
+        },
+        {
+            src: carouselImage24,
+            alt: 'Martin speaking at an event'
+        },
+        {
+            src: carouselImage25,
+            alt: 'Martin speaking at an event'
+        },
+        {
+            src: carouselImage26,
+            alt: 'Martin speaking at an event'
+        }
+    ]
+
+    let carousels = [
+        {
+            content: blogs,
+            type: 'image'
+        },
+        {
+            content: videos,
+            type: 'video'
+        },
+        {
+            content: carouselImages,
+            type: 'image'
+        }
+    ]
 
     return (
         <div>
-            {/* <AutoCarousel images={[images.waterImg, images.birdsImg, images.fishImg]} /> */}
-
-            <ContentBlock theme="dark" media={[images.heroImg]} mediaPosition="right">
+            <ContentBlock theme={theme} media={[heroImage]} mediaPosition="right">
                 <p className="text-large">Public relations professional with a good grasp of marketing communications, event planning, corporate messaging and strategic branding. Possesses excellent knowledge of organization and people management as well as exceptional writing, speaking and editing skills and strong work ethic.</p>
             </ContentBlock>
             
-            <AutoCarousel images={[images.cogDisabilitiesHeroImg]}>
-                <h2>WHAT ARE COGNITIVE DISABILITIES</h2>
-            </AutoCarousel>
+            <Quote theme={theme} text="Live for yourself and you will live in vain; Live for others and you will live again." author="Bob Marley" />
 
-            <Quote theme="dark" text="Live for yourself and you will live in vain; Live for others and you will live again." author="Bob Marley" />
+            <CarouselStrip carousels={carousels} theme="dark" />
         </div>
     )
 }

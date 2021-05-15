@@ -8,7 +8,7 @@ export default function About() {
     const match = useRouteMatch()
 
     let heroImage = {
-        image: hero,
+        src: hero,
         alt: 'Headshot of Martin Agunwa'
     }
 

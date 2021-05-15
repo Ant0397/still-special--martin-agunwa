@@ -7,6 +7,8 @@ import Campaigns from './components/pages/Campaigns'
 import CaseStudies from './components/pages/CaseStudies'
 import Footer from './components/Footer'
 import Blog from './components/pages/Blog'
+import { BlogProvider } from './context/BlogContext'
+import { VideoProvider } from './context/VideoContext'
 
 export default function App() {
     return (
@@ -14,7 +16,11 @@ export default function App() {
             <Switch>
                 <Route exact path="/">
                     <Header />
-                    <Home />
+                    <BlogProvider>
+                        <VideoProvider>
+                            <Home theme="dark" />
+                        </VideoProvider>
+                    </BlogProvider>
                     <Footer theme="dark" />
                 </Route>
                 <Route path="/about">
@@ -24,7 +30,9 @@ export default function App() {
                 </Route>
                 <Route path="/campaigns">
                     <Header />
-                    <Campaigns />
+                    <VideoProvider>
+                        <Campaigns />
+                    </VideoProvider>
                     <Footer />
                 </Route>
                 <Route path="/case-study">
@@ -34,7 +42,9 @@ export default function App() {
                 </Route>
                 <Route path="/blog">
                     <Header />
-                    <Blog />
+                    <BlogProvider>
+                        <Blog />
+                    </BlogProvider>
                     <Footer />
                 </Route>
             </Switch>

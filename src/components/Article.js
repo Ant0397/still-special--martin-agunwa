@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useHistory } from 'react-router'
 import ContentBlock from './ContentBlock'
 
-export default function Article({ title, children }) {
+export default function Article({ title, chunks }) {
     const history = useHistory()
 
     useEffect(() => {
@@ -14,7 +14,7 @@ export default function Article({ title, children }) {
             <button onClick={() => history.goBack()} className="btn btn--primary">Back</button>
             <h1 className="content__block__heading">{title}</h1>
             <p><i><strong>By Martin C. Agunwa</strong></i></p>
-            { children }
+            { chunks ? chunks : null }
         </ContentBlock>
     )
 }
