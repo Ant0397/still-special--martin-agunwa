@@ -60,7 +60,7 @@ export default function Home() {
 
             <Quote theme="dark" text="Live for yourself and you will live in vain; Live for others and you will live again." author="Bob Marley" />
 
-            <CarouselStrip />
+            <CarouselStrip theme="dark" />
         </div>
     )
 }

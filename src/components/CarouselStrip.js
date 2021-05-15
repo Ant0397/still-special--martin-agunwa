@@ -5,7 +5,7 @@ import sorryForTheRacistImg from '../assets/I-feel-sorry-for-the-racist.png'
 import { useRouteMatch } from 'react-router'
 import AutoCarousel from './AutoCarousel'
 
-export default function CarouselStrip({ blogs, images, videos }) {
+export default function CarouselStrip({ theme, blogs, images, videos }) {
     const match = useRouteMatch()
 
     const articles = [
@@ -42,10 +42,13 @@ export default function CarouselStrip({ blogs, images, videos }) {
     ]
 
     return (
-        <div className="carousel__strip">
-            <AutoCarousel content={articles} type="image" />
-            <AutoCarousel content={articles} type="image" />
-            <AutoCarousel content={articles} type="image" />
+        <div className={`carousel__block carousel__block--${theme}`}>
+            <h1 className="carousel__block__heading">Blogs and Campaign Videos</h1>
+            <div className="carousel__strip">
+                <AutoCarousel theme={theme} content={articles} type="image" />
+                <AutoCarousel theme={theme} content={articles} type="image" />
+                <AutoCarousel theme={theme} content={articles} type="image" />
+            </div>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ContentBlock({ theme, children, media, mediaPosition }) {
     return (
-        <div className={`content__block ${theme}`}>
+        <div className={`content__block content__block--${theme}`}>
             { media && mediaPosition == 'left' ?
                 <div className="content__block__media">
                     { media.map(item => (

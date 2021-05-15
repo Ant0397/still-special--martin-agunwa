@@ -1,6 +1,4 @@
 import React from 'react'
-import visualisedAudio from '../../assets/Still Special Campaign (Visualised audio) - Advocacy to raise awarenes about the plight of children with disabilities in rural parts of Nigeria  (Made by Headliner).mp4'
-import interview from '../../assets/Untitled Project (Made by Headliner).mp4'
 import ContentBlock from '../ContentBlock'
 import ContentCard from '../ContentCard'
 

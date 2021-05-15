@@ -7,6 +7,7 @@ import Campaigns from './components/pages/Campaigns'
 import CaseStudies from './components/pages/CaseStudies'
 import Footer from './components/Footer'
 import Blog from './components/pages/Blog'
+import { BlogProvider } from './context/BlogContext'
 
 export default function App() {
     return (
@@ -33,9 +34,11 @@ export default function App() {
                     <Footer />
                 </Route>
                 <Route path="/blog">
-                    <Header />
-                    <Blog />
-                    <Footer />
+                    <BlogProvider>
+                        <Header />
+                        <Blog />
+                        <Footer />
+                    </BlogProvider>
                 </Route>
             </Switch>
         </Router>
