@@ -255,6 +255,7 @@ a.social {
     margin-bottom: 2em;
     font-size: 1.75rem;
     max-width: 20ch;
+    text-align: center;
 }
 
 .content__card__video {

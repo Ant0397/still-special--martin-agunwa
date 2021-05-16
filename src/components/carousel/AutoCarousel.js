@@ -6,7 +6,7 @@ import ContentCard from '../ContentCard';
 export default function AutoCarousel({ theme, contentCardItems, contentCardType }) {
     return (
         <div className="carousel__container">
-            <Carousel autoPlay={false} transitionTime={500} interval={7000} stopOnHover={false} showArrows={true} showStatus={false} showThumbs={false} showIndicators={false} infiniteLoop={true}>
+            <Carousel autoPlay={true} transitionTime={500} interval={7000} stopOnHover={false} showArrows={true} showStatus={false} showThumbs={false} showIndicators={false} infiniteLoop={true}>
                 { contentCardItems ? 
                     contentCardItems.map(item => (
                         <ContentCard theme={theme} carouselStrip="carousel" type={contentCardType} title={item.title ? item.title : null} content={item} />
