@@ -184,7 +184,7 @@ export function BlogProvider({ children }) {
             url: '/blog/7'
         },
         {
-            title: 'Mind our language: Racism and the symbolism of words',
+            title: 'Mind your language: Racism and the symbolism of words',
             images: [
                 {
                     src: wordsPowerImg,

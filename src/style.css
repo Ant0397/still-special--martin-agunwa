@@ -342,7 +342,6 @@ a.social {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 2em;
 }
 
 .carousel__container {
@@ -354,6 +353,7 @@ a.social {
     width: 25vw;
     height: 45vh;
     box-shadow: none;
+    margin-left: 1.4em;
 }
 
 .content__card__image--carousel {
