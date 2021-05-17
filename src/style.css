@@ -248,8 +248,8 @@ a.social {
 
 .content__card__heading {
     margin-bottom: 1em;
-    font-size: 1.75rem;
-    max-width: 20ch;
+    font-size: 1.5rem;
+    max-width: 25ch;
     text-align: center;
 }
 
@@ -263,7 +263,7 @@ a.social {
 .content__card__image {
     width: var(--content-card-image-width);
     height: var(--content-card-image-height);
-    object-fit: contain;
+    object-fit: cover;
     background-color: transparent;
 }
 
@@ -350,10 +350,10 @@ a.social {
 } */
 
 .content__card--carousel {
-    width: 25vw;
-    height: 45vh;
+    width: 27vw;
+    height: 50vh;
     box-shadow: none;
-    margin: 0 2em;
+    margin: 0 1.5em;
 }
 
 .content__card__image--carousel {
