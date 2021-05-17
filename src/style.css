@@ -382,3 +382,7 @@ a.social {
 .content__card__image--no-title {
     height: 300px !important;
 }
+
+.slider-wrapper {
+    width: 100vw;
+}
