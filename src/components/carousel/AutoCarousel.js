@@ -153,7 +153,7 @@ export default function AutoCarousel({ theme }) {
     }
 
     return (
-        <Carousel autoPlay={true} transitionTime={1000} interval={5000} stopOnHover={false} showArrows={true} showStatus={false} showThumbs={false} showIndicators={false} infiniteLoop={true}>
+        <Carousel autoPlay={true} transitionTime={1500} interval={10000} stopOnHover={false} showArrows={false} showStatus={false} showThumbs={false} showIndicators={false} infiniteLoop={true}>
             { generateSlides() }
         </Carousel>
     )
