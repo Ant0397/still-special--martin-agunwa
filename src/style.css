@@ -352,7 +352,7 @@ a.social {
 
 .content__card--carousel {
     width: 25vw;
-    height: 45vh;
+    min-height: 45vh;
     box-shadow: none;
     margin-left: 1.4em;
 }
