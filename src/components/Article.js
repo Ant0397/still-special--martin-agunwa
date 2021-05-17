@@ -10,7 +10,7 @@ export default function Article({ title, chunks, children }) {
     }, [])
 
     return (
-        <ContentBlock>
+        <ContentBlock justifyText>
             <button onClick={() => history.goBack()} className="btn btn--primary">Back</button>
             <h1 className="content__block__heading">{title}</h1>
             <p><i><strong>By Martin C. Agunwa</strong></i></p>

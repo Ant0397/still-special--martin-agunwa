@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ContentBlock({ theme, children, media, mediaPosition }) {
+export default function ContentBlock({ theme, children, media, mediaPosition, justifyText }) {
     return (
         <div className={`content__block content__block--${theme}`}>
             { media && mediaPosition == 'left' ?
@@ -13,7 +13,7 @@ export default function ContentBlock({ theme, children, media, mediaPosition }) 
                 null
             }
 
-            <div className={`content__block__body content__block__body--margin-${mediaPosition}`}>
+            <div className={`${justifyText ? "justify" : null} content__block__body content__block__body--margin-${mediaPosition}`}>
                 { children }
             </div>
             

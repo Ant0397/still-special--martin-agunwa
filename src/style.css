@@ -344,11 +344,6 @@ a.social {
     align-items: center;
 }
 
-/* .carousel__item__container {
-    margin: 0 2em;
-    width: 28vw;
-} */
-
 .content__card--carousel {
     width: 27vw;
     height: 50vh;
@@ -384,4 +379,9 @@ a.social {
 
 .carousel-slider {
     width: 100vw !important;
+}
+
+.justify {
+    text-align: justify;
+    text-justify: inter-word;
 }
