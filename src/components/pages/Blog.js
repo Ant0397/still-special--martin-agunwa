@@ -27,7 +27,7 @@ export default function Blog() {
             { blogs ? 
                 blogs.map(blog => (
                     <Route exact path={blog.url}>
-                        <Article title={blog.title} chunks={blog.chunks} />
+                        <Article title={blog.title} hero={blog.images[0]} chunks={blog.chunks} />
                     </Route>
                 ))    
             :

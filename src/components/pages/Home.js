@@ -16,7 +16,7 @@ export default function Home({ theme }) {
                 <p className="text-large">Public relations professional with a good grasp of marketing communications, event planning, corporate messaging and strategic branding. Possesses excellent knowledge of organization and people management as well as exceptional writing, speaking and editing skills and strong work ethic.</p>
             </ContentBlock>
             
-            <Quote theme={theme} text="Live for yourself and you will live in vain; Live for others and you will live again." author="Bob Marley" />
+            <Quote text="Live for yourself and you will live in vain; Live for others and you will live again." author="Bob Marley" />
 
             <CarouselStrip theme={theme} />
         </div>
