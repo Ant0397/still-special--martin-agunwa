@@ -25,13 +25,19 @@ export default function ContentCard({ theme, carouselStrip, type, content, title
         return title ? '' : 'content__card__image--no-title'
     }
 
+    // returns an <img /> depending on the properties of the content prop
+    function renderImage() {
+        if (content.src && content.alt) return <img className={`${expandCardContent()} content__card__image content__card__image--${carouselStrip}`} src={content.src} alt={content.alt} />
+        if (content.images) return <img className={`${expandCardContent()} content__card__image content__card__image--${carouselStrip}`} src={content.images[0].src} alt={content.images[0].alt} />
+    }
+
     return (
         <div onClick={redirect} className={`${centreCardContent()} content__card content__card--${theme} content__card--${type} content__card--${carouselStrip}`}>
-             { title ? <h2 className='content__card__heading'>{title}</h2> : null }
+            { title ? <h2 className='content__card__heading'>{title}</h2> : null }
             { type == 'video' ?
                 <ReactPlayer controls={true} onContextMenu={preventRightClick} className={`content__card__video content__card__video--${carouselStrip}`} url={content.video} />
             : 
-                <img className={`${expandCardContent()} content__card__image content__card__image--${carouselStrip}`} src={content.src ? content.src : content.images[0].src} alt={content.alt ? content.alt : content.images[0].alt} />
+                renderImage()
             }
         </div>
     )

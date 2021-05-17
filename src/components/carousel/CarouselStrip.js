@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import AutoCarousel from './AutoCarousel'
+import { BlogContext } from '../../context/BlogContext'
+import { VideoContext } from '../../context/VideoContext'
 
-export default function CarouselStrip({ theme, carousels }) {
+
+export default function CarouselStrip({ theme }) {
+    let blogs = useContext(BlogContext)
+    let videos = useContext(VideoContext)
 
     return (
         <div className={`carousel__block carousel__block--${theme}`}>
             <h1 className="carousel__block__heading">Blogs and Campaign Videos</h1>
-            <div className="carousel__strip">
-                { carousels.map(carousel => (
-                    <AutoCarousel theme={theme} contentCardItems={carousel.content} contentCardType={carousel.type} />
-                ))}
-            </div>
+            <AutoCarousel theme={theme} />
         </div>
     )
 }

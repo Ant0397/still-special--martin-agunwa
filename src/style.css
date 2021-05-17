@@ -255,6 +255,7 @@ a.social {
     margin-bottom: 2em;
     font-size: 1.75rem;
     max-width: 20ch;
+    text-align: center;
 }
 
 .content__card__video {
@@ -344,7 +345,7 @@ a.social {
     align-items: center;
 }
 
-.carousel__container {
+.carousel__item__container {
     margin: 0 2em;
     width: 28vw;
 }
