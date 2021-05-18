@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { faFacebookF, faInstagram, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import SocialBar from '../SocialBar'
 import NavBar from './NavBar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 export default function Nav() {
+    const [screenWidth, setScreenWidth] = useState(screen.width)
+    const [mobileNavOpen, setMobileNavOpen] = useState(false)
+
+    window.addEventListener('resize', () => {
+        setScreenWidth(screen.width)
+    })
+
     const socialIcons = [
         {
             name: 'twitter',
@@ -31,10 +40,20 @@ export default function Nav() {
         }
     ]
 
+    function toggleNav() {
+        setMobileNavOpen(!mobileNavOpen)
+    }
+
     return (
         <div className="navbar__nav">
-            <SocialBar icons={socialIcons} />
-            <NavBar />
+            { screenWidth < 1000 ?
+                <FontAwesomeIcon onClick={toggleNav} icon={faBars} size="2x" />   
+            :
+                <>
+                    <SocialBar icons={socialIcons} />
+                    <NavBar />
+                </>        
+            }
         </div>
     )
 }
