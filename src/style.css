@@ -273,7 +273,7 @@ a.social {
 .content__card__image {
     width: var(--content-card-image-width);
     height: var(--content-card-image-height);
-    object-fit: cover;
+    object-fit: contain;
     background-color: transparent;
 }
 
@@ -355,8 +355,8 @@ a.social {
 }
 
 .content__card--carousel {
-    width: 27vw;
-    height: 50vh;
+    width: calc(300px * 1.25);
+    height: calc(150px * 2);
     box-shadow: none;
     margin: 0 1.5em;
 }
