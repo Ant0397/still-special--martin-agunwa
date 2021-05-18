@@ -15,7 +15,7 @@ export default function App() {
         <Router>
             <Switch>
                 <Route exact path="/">
-                    <Header />
+                    {/* <Header /> */}
                     <BlogProvider>
                         <VideoProvider>
                             <Home theme="dark" />

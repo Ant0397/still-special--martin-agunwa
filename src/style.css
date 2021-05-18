@@ -181,10 +181,6 @@ a.social {
     margin-bottom: 2em;
 }
 
-.content__block__body > p:first-of-type {
-    margin-bottom: 2em;
-}
-
 .content__block__body > p {
     font-size: 1rem;
     font-weight: var(--fw-regular);
@@ -323,11 +319,12 @@ a.social {
     font-family: 'Marck Script', cursive;
     font-weight: var(--fw-bold) !important;
     font-size: 2rem !important;
-    max-width: 35ch;
+    max-width: 39ch;
 }
 
 .quote__author {
-    margin: 0 2em;
+    align-self: flex-end;
+    margin: 2em 0 -1em 0 !important;
     font-size: 1.5rem;
     font-family: 'Roboto', sans-serif;
     color: var(--clr-highlight);
@@ -407,4 +404,47 @@ a.social {
 
 .control-arrow {
     margin: 0 2em !important;
+}
+
+@media screen and (max-width: 750px) {
+    .content__block {
+        flex-direction: column;
+    }
+
+    .content__block__body--margin-left,
+    .content__block__body--margin-right {
+        margin: 1em 0;
+    }
+
+    .content__block__media {
+        margin: 1em 0;
+    }
+
+    .carousel__block__heading,
+    .footer__container {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .content__card--carousel,
+    .content__card__image--carousel,
+    .content__card__video--carousel {
+        width: 90% !important;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .carousel__strip {
+        flex-direction: column;
+    }
+
+    .content__card--carousel {
+        margin: 1em 0;
+    }
+
+    .content__card__image--no-title {
+        width: 100% !important;
+    }
+
 }
