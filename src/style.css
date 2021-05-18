@@ -273,7 +273,7 @@ a.social {
 .content__card__image {
     width: var(--content-card-image-width);
     height: var(--content-card-image-height);
-    object-fit: contain;
+    object-fit: cover;
     background-color: transparent;
 }
 
@@ -345,10 +345,11 @@ a.social {
 }
 
 .carousel__block__heading {
-    margin: 0 1em 2em 0;
+    margin-bottom: 1em;
 }
 
 .carousel__strip {
+    padding: 2em 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -385,10 +386,12 @@ a.social {
 
 .content__card__image--no-title {
     height: 300px !important;
+    width: calc(300px * 1.25) !important;
+    border-radius: 20px;
 }
 
 .carousel-slider {
-    width: 100vw !important;
+    max-width: 99vw !important;
 }
 
 .justify {
