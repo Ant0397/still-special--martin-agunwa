@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router'
-import logo from '../../assets/website-logo.jpg'
+import logo from '../../assets/Martin-Podcast.png'
 
 export default function NavbarBrand({ title, subtitle }) {
     const history = useHistory()

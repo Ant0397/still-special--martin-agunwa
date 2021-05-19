@@ -30,7 +30,7 @@ module.exports = {
             template: './src/index.html'
         }),
         new FaviconsWebpackPlugin({
-            logo: './src/assets/website-logo.jpg',
+            logo: './src/assets/Martin-Podcast.png',
             inject: true,
         })
     ]
