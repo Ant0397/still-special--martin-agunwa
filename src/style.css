@@ -80,6 +80,15 @@ a.social {
     cursor: default;
 }
 
+.mobile__nav__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: 50vh;
+    background-color: white;
+}
+
 .nav__links {
     display: flex;
     text-align: center;
@@ -412,6 +421,20 @@ a.social {
     margin: 0 2em !important;
 }
 
+.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.527);
+    padding-top: 4em;
+}
+
 @media screen and (max-width: 985px) {
     .content__block {
         flex-direction: column;
@@ -461,6 +484,10 @@ a.social {
 
     .header {
         margin-bottom: 3em;
+    }
+
+    .nav__links {
+        flex-direction: column;
     }
 }
 
