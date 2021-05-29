@@ -12,14 +12,21 @@
     --fw-regular: 400;
     --fw-bold: 700;
     --fw-black: 900;
-    --content-card-image-width: 350px;
-    --content-card-image-height: 200px;
+    --content-card-image-width: 20vw;
+    --content-card-image-height: 12vw;
     --content-card-image-carousel-width: 300px;
     --content-card-image-carousel-height: 150px;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
+}
+
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 .header {
@@ -248,7 +255,6 @@ a.social {
     padding: 2em;
     margin: .5em;
     border-radius: 20px;
-    width: 30vw;
     box-shadow: 0 5px 10px black;
 }
 
@@ -435,26 +441,6 @@ a.social {
     padding-top: 4em;
 }
 
-@media screen and (max-width: 985px) {
-    .content__block {
-        flex-direction: column;
-    }
-
-    .content__block__body--margin-left,
-    .content__block__body--margin-right {
-        margin: 1em 0;
-    }
-
-    .content__block__media {
-        margin: 1em 0;
-    }
-
-    .carousel__block__heading,
-    .footer__container {
-        text-align: center;
-    }
-}
-
 @media screen and (max-width: 420px) {
     .content__card--carousel,
     .content__card__image--carousel,
@@ -475,6 +461,14 @@ a.social {
     .content__card__image--no-title {
         width: 100% !important;
     }
+
+    .content__card__container {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .react-pdf__Document {
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -488,6 +482,43 @@ a.social {
 
     .nav__links {
         flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 985px) {
+    .content__block {
+        flex-direction: column;
+    }
+
+    .content__block__body--margin-left,
+    .content__block__body--margin-right {
+        margin: 1em 0;
+    }
+
+    .content__block__media {
+        margin: 1em 0;
+    }
+
+    .carousel__block__heading,
+    .footer__container {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .content__card {
+        min-width: 40vw;
+    }
+
+    .content__card__image,
+    .content__card__video {
+        width: 30vw !important;
+        height: 20vw !important;
+    }
+
+    .react-pdf__Page__canvas {
+        width: 61vw !important;
+        height: 79vw !important;
     }
 }
 
@@ -515,5 +546,19 @@ a.social {
 
     .header {
         justify-content: center;
+    }
+
+    .content__card__container {
+        grid-template-columns: repeat(1, auto);
+    }
+
+    .content__card {
+        min-width: 85vw;
+    } 
+
+    .content__card__image,
+    .content__card__video {
+        width: 65vw !important;
+        height: 40vw !important;
     }
 }
