@@ -510,7 +510,11 @@ a.social {
         min-width: 40vw;
     }
 
-    .content__card__image,
+    .content__card__image {
+        width: 30vw;
+        height: 20vw;
+    }
+
     .content__card__video {
         width: 30vw !important;
         height: 20vw !important;
@@ -556,7 +560,11 @@ a.social {
         min-width: 85vw;
     } 
 
-    .content__card__image,
+    .content__card__image {
+        width: 65vw;
+        height: 40vw;
+    }
+
     .content__card__video {
         width: 65vw !important;
         height: 40vw !important;
