@@ -104,8 +104,7 @@ export default function CaseStudies() {
                 </ContentBlock>
             </Route>
             <Route exact path={match.url + '/1'}>
-                <Article title={caseStudies[0].title + ' – AMNESTY CAMPAIGNS JUSTICE FOR VICTIMS'}>
-                    <img src={caseStudies[0].images[0].src} alt={caseStudies[0].images[0].alt} />
+                <Article title={caseStudies[0].title + ' – AMNESTY CAMPAIGNS JUSTICE FOR VICTIMS'} hero={caseStudies[0].images[0]}>
                     <p>100 days after the shooting of unarmed protesters at the Lekki tollgate plaza on the night of 20 October, 2020, <a target="_blank" href="https://www.amnesty.org/en/countries/africa/nigeria/">Amnesty International, Nigeria</a> launched a digital media campaign entitled <a target="_blank" href="https://www.amnesty.org/en/latest/news/2021/01/nigeria-denials-and-cover-up-mark-100-days-since-lekki-shooting/">“We Want Justice: 100 Days Since Lekki Shooting”</a> to commemorate an event the Human Rights watchdog describes as a dark veil in Nigeria’s history.</p>
                     <img src={caseStudies[0].images[1].src} alt={caseStudies[0].images[1].alt} />
                     <p>In a <a target="_blank" href="https://www.amnesty.org/en/latest/news/2021/01/nigeria-denials-and-cover-up-mark-100-days-since-lekki-shooting/">press statement</a> published via the organization’s website, Amnesty International, Nigeria stated that the objective of the campaign is to call attention to the fact that 100 days since the shooting of #Endsars protesters at the Lekki tollgate plaza, Lagos, Nigeria victims are yet to receive justice. Also, #Endsars protesters still face serious political intimidation and no concrete police reforms have been made.</p>
@@ -119,8 +118,7 @@ export default function CaseStudies() {
 
             </Route>
             <Route exact path={match.url + '/2'}>
-                <Article title="#BreakupWithHarmattan – Nivea’s Harmattan Season Skin Care Campaign">
-                    <img src={caseStudies[1].images[0].src} alt={caseStudies[1].images[0].alt} />
+                <Article title="#BreakupWithHarmattan – Nivea’s Harmattan Season Skin Care Campaign" hero={caseStudies[1].images[0]}>
                     <p>The harmattan season which usually occurs towards the end of the year and dovetailing to the first quarter of the new year in Nigeria and some other parts of the world is characterized by dry winds and dusty atmosphere. A typical feature of this weather is dry skin and sometimes white patches and cracked lips. It was this mix that was at the center of Nivea’s #BreakupWithHarmattan campaign.</p>
                     <p>Towards the last quarter of the year 2020, <a target="_blank" href="https://en.wikipedia.org/wiki/Nivea">Nivea</a> launched the #BreakupWithHarmattan campaign in Nigeria after earlier running it in Ghana. The campaign ran under other similar copies as #DoneWithDryness and #Harmattan can’t touch this. The main catch of the campaign was a 10-episode mini drama series published consecutively on <a target="_blank" href="https://www.youtube.com/watch?v=i3Jzm9u2h5E">YouTube</a>, Facebook and <a target="_blank" href="https://www.instagram.com/p/CIh_fq0jy1W/">Instagram</a>. The series follows Dalia and her tumultuous relationship with Dusty who is a metaphorical representation of harmattan. Dalia earlier on accepts the proposal of Dusty but soon begins to experience dry skin and cracked lips. With the intervention of her imaginary friend, Dorcas who introduces her to Nivea skincare products she is eventually able to keep Dusty (harmattan) away.</p>
                     <div>

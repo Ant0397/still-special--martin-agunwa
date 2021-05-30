@@ -14,7 +14,6 @@ export default function NavItem({ link }) {
     }
 
     function renderLink(link) {
-        if (link.dropdown) {
            return <div onMouseLeave={toggleDropdown} className="nav__link--dropdown-container">
                 <NavLink onMouseOver={toggleDropdown} exact to={link.path} className={`nav__link ${setActiveClass()}`}>{link.text}</NavLink>
                 { link.dropdown && dropdownOpen ?
@@ -25,9 +24,6 @@ export default function NavItem({ link }) {
                     null
                 }
             </div>
-        } else {
-            return <NavLink exact to={link.path} className={`nav__link ${setActiveClass()}`}>{link.text}</NavLink>
-        }
     }
 
     return (

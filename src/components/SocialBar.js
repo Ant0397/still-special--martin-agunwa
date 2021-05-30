@@ -1,13 +1,14 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { socials } from '../links'
 
-export default function SocialBar({ icons }) {
+export default function SocialBar() {
     return (
         <div>
-            { icons ? 
-                icons.map(icon => (
-                    <a className="social" href={icon.url} target="_blank">
-                        <FontAwesomeIcon className="social" icon={icon.icon} size={icon.size} />
+            { socials ? 
+                socials.map(social => (
+                    <a className="social" href={social.url} target="_blank">
+                        <FontAwesomeIcon className="social" icon={social.icon} size={social.size} />
                     </a>
                 ))
             :
