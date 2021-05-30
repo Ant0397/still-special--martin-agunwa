@@ -12,7 +12,7 @@ export default function CV() {
     const options = {
         cMapUrl: 'cmaps/',
         cMapPacked: true,
-      }
+    }
 
     function onLoadSuccess({ numPages }) {
         setNumPages(numPages);
