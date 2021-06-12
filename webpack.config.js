@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
     entry: './src/index.js',
@@ -32,6 +33,9 @@ module.exports = {
         new FaviconsWebpackPlugin({
             logo: './shared/assets/Martin-Podcast.png',
             inject: true,
+        }),
+        new webpack.DefinePlugin({
+            __isBrowser__: true 
         })
     ]
 }

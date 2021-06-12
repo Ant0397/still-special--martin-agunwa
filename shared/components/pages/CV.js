@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import ContentBlock from '../ContentBlock'
 import cv from '../../assets/CV-2.pdf'
 // import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
-// import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import { Link, useHistory } from 'react-router-dom';
 
 export default function CV() {
+
     const [numPages, setNumPages] = useState(null)
     const history = useHistory()
 

@@ -1,5 +1,6 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
+const webpack = require('webpack')
 
 module.exports = {
     entry: './server/server.js',
@@ -8,6 +9,7 @@ module.exports = {
         filename: 'server.js',
         publicPath: ''
     },
+    mode: "production",
     externalsPresets: { node: true },
     externals: [nodeExternals()],
     node: {
@@ -25,5 +27,10 @@ module.exports = {
                 use: 'file-loader'
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            __isBrowser__: false 
+        })
+    ]
 }

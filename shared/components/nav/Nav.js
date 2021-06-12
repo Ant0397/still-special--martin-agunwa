@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import ReactDOM from 'react-dom'
 import SocialBar from '../SocialBar'
 import NavBar from './NavBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,10 +9,6 @@ import { NavContext } from '../../context/NavContext'
 export default function Nav() {
     // const [screenWidth, setScreenWidth] = useState(screen.width)
     const [mobileNavOpen, setMobileNavOpen] = useContext(NavContext)
-
-    // window.addEventListener('resize', () => {
-    //     setScreenWidth(screen.width)
-    // })
 
     function toggleNav() {
         setMobileNavOpen(!mobileNavOpen)

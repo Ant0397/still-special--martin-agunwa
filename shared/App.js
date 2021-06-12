@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Home from './components/pages/Home'
 import Header from './components/Header'
+import Home from './components/pages/Home'
 import About from './components/pages/About'
 import Campaigns from './components/pages/Campaigns'
 import CaseStudies from './components/pages/CaseStudies'
@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 import Blog from './components/pages/Blog'
 import { BlogProvider } from './context/BlogContext'
 import { VideoProvider } from './context/VideoContext'
+
 
 export default function App() {
     return (

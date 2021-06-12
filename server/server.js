@@ -3,6 +3,7 @@ import express from 'express'
 import http from 'http'
 import path from 'path'
 import fs from 'fs'
+import 'ignore-styles'
 
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
@@ -21,14 +22,13 @@ http.createServer(app)
     })
 
 // index route
-app.get('/:var(about|about/cv|blog|blog/[1-9999]|campaigns)?', (req, res) => {
+app.get('/:var(about|about/cv|blog|blog/[1-9999]|campaigns|case-study|case-study/[1-9999])?', (req, res) => {
     const indexPath = path.resolve(__dirname, '../', 'public', 'index.html')
     const appHTML = ReactDOMServer.renderToString(
             <StaticRouter location={req.url} context={{}}>
                 <App />
             </StaticRouter>
     )
-
     fs.readFile(indexPath, 'utf-8', (err, data) => {
         if (err) {
             console.error(err)

@@ -18,7 +18,6 @@ export default function ContentCard({ theme, carouselStrip, type, content, title
     return (
         <div onClick={redirect} className={`${title ? "" : "content__card--no-title"} content__card ${theme ? "content__card--" + theme : ""} content__card--${type} ${carouselStrip ? "content__card--carousel" : ""}`}>
            
-            { carouselStrip ? console.log('sdsdfgsg') : null }
             { title ? <h2 className='content__card__heading'>{title}</h2> : null }
             { type == 'video' ?
                 <ReactPlayer controls={true} onContextMenu={preventRightClick} className={`content__card__video ${carouselStrip ? "content__card__video--carousel" : ""}`} url={content.video} />

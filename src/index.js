@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import App from '../shared/App'
-import './style.css'
+import css from './style.css'
 
 ReactDOM.hydrate(
     <React.StrictMode>
