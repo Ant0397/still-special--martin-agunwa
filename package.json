@@ -7,9 +7,11 @@
     "node": "14.15.3"
   },
   "scripts": {
-    "build": "webpack",
-    "start": "node server.js",
-    "dev": "NODE_ENV=dev nodemon server.js"
+    "build:client": "webpack",
+    "build:server": "webpack --config webpack.server.js",
+    "build:server-dev": "webpack --config webpack.server.dev.js",
+    "start": "node ./server-build/server.js",
+    "dev": "nodemon ./server-dev/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -37,9 +39,11 @@
     "favicons": "^6.2.2",
     "favicons-webpack-plugin": "^5.0.2",
     "html-webpack-plugin": "^5.3.1",
+    "ignore-styles": "^5.0.1",
     "nodemon": "^2.0.7",
     "style-loader": "^2.0.0",
     "webpack": "^5.36.2",
-    "webpack-cli": "^4.7.0"
+    "webpack-cli": "^4.7.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }

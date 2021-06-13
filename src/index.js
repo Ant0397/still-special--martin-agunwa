@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-import './style.css'
+import { BrowserRouter } from 'react-router-dom'
+import App from '../shared/App'
+import css from './style.css'
 
-ReactDOM.render(
+ReactDOM.hydrate(
     <React.StrictMode>
-        <App />
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </React.StrictMode>
 , document.getElementById('root'))
