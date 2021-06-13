@@ -24,19 +24,15 @@ export default function CV() {
         <ContentBlock>
             <button onClick={() => history.goBack()} className="btn btn--primary">Back</button>
             <h1 className="content__block__heading">CV</h1>
-            { __isBrowser__ ?
-                <Document file={cv} onLoadError={console.error} onLoadSuccess={onLoadSuccess} options={options}>
-                    { numPages ? 
-                        Array.from(new Array(numPages), (el, index) => (
-                            <Page pageNumber={index + 1} />
-                        ))
-                    :
-                        null
-                    }
-                </Document>
-            :
+            <Document file={cv} onLoadError={console.error} onLoadSuccess={onLoadSuccess} options={options}>
+                { numPages ? 
+                    Array.from(new Array(numPages), (el, index) => (
+                        <Page pageNumber={index + 1} />
+                    ))
+                :
                     null
-            }
+                }
+            </Document>
             <Link to={'/' + cv.split('/')[3]} download="martin-agunwa-cv.pdf" target="_blank" className="btn btn--primary">Download</Link>
         </ContentBlock>
     )

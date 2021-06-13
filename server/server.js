@@ -21,7 +21,7 @@ http.createServer(app)
         console.log(`server running in ${process.env.NODE_ENV} on port ${port}`)
     })
 
-// index route
+// SPA routes
 app.get('/:var(about|about/cv|blog|blog/[1-9999]|campaigns|case-study|case-study/[1-9999])?', (req, res) => {
     const indexPath = path.resolve(__dirname, '../', 'public', 'index.html')
     const appHTML = ReactDOMServer.renderToString(
@@ -29,6 +29,8 @@ app.get('/:var(about|about/cv|blog|blog/[1-9999]|campaigns|case-study|case-study
                 <App />
             </StaticRouter>
     )
+
+    // inject stringified <App /> component into html file
     fs.readFile(indexPath, 'utf-8', (err, data) => {
         if (err) {
             console.error(err)
