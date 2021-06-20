@@ -1,7 +1,4 @@
 /node_modules
 /server-dev
-/public
-/server
-/server-build
-/server-src/config/local.env
+server-src/config/local.env
 .DS_Store
