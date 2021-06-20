@@ -7,7 +7,7 @@ import MobileNav from './MobileNav'
 import { NavContext } from '../../context/NavContext'
 
 export default function Nav() {
-    // const [screenWidth, setScreenWidth] = useState(screen.width)
+    const [screenWidth, setScreenWidth] = useState(__isBrowser__ ? screen.width : null)
     const [mobileNavOpen, setMobileNavOpen] = useContext(NavContext)
 
     function toggleNav() {
@@ -16,15 +16,15 @@ export default function Nav() {
 
     return (
         <div className="navbar__nav">
-            {/* { screenWidth < 1000 ? */}
-                {/* <FontAwesomeIcon onClick={toggleNav} icon={faBars} size="2x"> */}
-                {/* </FontAwesomeIcon>  */}
-            {/* : */}
-                {/* <> */}
+            { screenWidth && screenWidth < 1000 ?
+                <FontAwesomeIcon onClick={toggleNav} icon={faBars} size="2x">
+                </FontAwesomeIcon> 
+            :
+                <>
                     <SocialBar />
                     <NavBar />
-                {/* </>         */}
-            {/* } */}
+                </>        
+            }
             {
                 mobileNavOpen ? <MobileNav /> : null 
             }

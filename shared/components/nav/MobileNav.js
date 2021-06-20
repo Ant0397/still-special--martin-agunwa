@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { NavContext } from '../../context/NavContext'
+import SocialBar from '../SocialBar'
 import NavBar from './NavBar'
 
 export default function MobileNav() {
@@ -9,6 +10,7 @@ export default function MobileNav() {
         <div onClick={() => setMobileNavOpen(false)} className="modal">
             <div className="mobile__nav__container">
                 <NavBar />
+                <SocialBar />
             </div>
         </div>
     )
