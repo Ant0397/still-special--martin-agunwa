@@ -143,11 +143,12 @@ export default function AutoCarousel({ theme }) {
         let max = Math.max(blogs.length, videos.length, images.length)
         let slides = []
 
+        let video = videos.filter(video => video.title == 'still special - visualised audio')[0]
         for (let x = 0; x < max; x++) {
             let randomBlogIndex = Math.floor(Math.random() * blogs.length)
             let randomImageIndex = Math.floor(Math.random() * images.length)
 
-            slides.push(<CarouselSlide theme={theme} blog={blogs[randomBlogIndex]} video={videos.filter(video => video.title == 'still special - visualised audio')[0]} image={images[randomImageIndex]} />)
+            slides.push(<CarouselSlide theme={theme} blog={blogs[randomBlogIndex]} video={video} image={images[randomImageIndex]} />)
         }
 
         return slides
