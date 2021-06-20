@@ -1,15 +1,24 @@
-GET http://localhost:4000/api/files/videos/stiLl+special+-+human+interest+story
-
-###
-
 POST http://localhost:4000/api/files/videos
 Content-Type: application/json
 
 {
-    "title": "Still Special - Instagram Story",
+    "title": "Still SpEcial - Instagram Story",
     "url": "https://youtu.be/6LjNQRADMpk"
 }
 
 ###
 
 GET http://localhost:4000/api/files/videos
+
+###
+
+POST http://localhost:4000/api/blogs
+Content-Type: application/json
+
+{
+
+}
+
+###
+
+GET http://localhost:4000/api/blogs

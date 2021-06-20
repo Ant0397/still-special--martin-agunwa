@@ -1,4 +1,4 @@
-import React, { createContext } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import melancholyImg from '../assets/melancholy-of-unknown-selves.jpg'
 import filthySoundImg from '../assets/These-filtered-filthy-sound.jpg'
 import sorryForTheRacistImg from '../assets/I-feel-sorry-for-the-racist.png'

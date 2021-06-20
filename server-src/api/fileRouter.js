@@ -1,8 +1,5 @@
 // packages
 import express from 'express'
-import fs from 'fs'
-import GridFile from '../models/GridFile'
-import path from 'path'
 import { fileExists } from '../middleware'
 import Video from '../models/Video'
 
@@ -54,30 +51,5 @@ fileRouter.get('/videos', async (req, res) => {
 
     }
 })
-
-// @method GET
-// @route /api/files/videos/:filename
-// @desc get a video by filename
-// @access public
-fileRouter.get('/videos/:filename', async (req, res) => {
-    try {
-        if (!req.file) return res.status(404).json({ messages: [
-            { type: 'error' },
-            { message: 'Unable to find file' }
-        ]})
-
-        // remove url encoding and lowercase
-        let video = await GridFile.findOne({ filename: req.file })
-
-        res.header('Content-Type', video.contentType)
-        res.header('Content-Length', video.length)
-
-        let stream = req.gfs.createReadStream({ filename: req.file })
-        stream.pipe(res)
-    } catch (e) {
-        return res.status(500).send('Something went wrong: ' + e.message)
-    }
-})
-
 
 export default fileRouter

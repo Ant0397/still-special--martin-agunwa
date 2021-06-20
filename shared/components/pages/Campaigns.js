@@ -1,16 +1,10 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { VideoContext } from '../../context/VideoContext'
-import VideoService from '../../services/VideoService'
 import ContentBlock from '../ContentBlock'
 import ContentCard from '../ContentCard'
 
 export default function Campaigns() {
-    const [videos, setVideos] = useContext(VideoContext)
-
-    useEffect(() => {
-        VideoService.retrieve()
-            .then(data => setVideos(data))
-    }, [])
+    const videos = useContext(VideoContext)
 
     return (
         <ContentBlock>
