@@ -2,7 +2,7 @@ import React from 'react'
 import ContentBlock from '../ContentBlock'
 import Quote from '../Quote'
 import hero from '../../assets/thumbnail_DSC_0263.jpg'
-import CarouselStrip from '../carousel/CarouselStrip' 
+// import CarouselStrip from '../carousel/CarouselStrip' 
 
 export default function Home() {
     let heroImage = {
@@ -18,7 +18,7 @@ export default function Home() {
             
             <Quote text="Live for yourself and you will live in vain; Live for others and you will live again." author="Bob Marley" />
 
-            <CarouselStrip theme="dark" />
+            {/* <CarouselStrip theme="dark" /> */}
     
         </div>
     )

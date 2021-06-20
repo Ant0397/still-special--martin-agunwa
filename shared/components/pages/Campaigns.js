@@ -1,10 +1,16 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { VideoContext } from '../../context/VideoContext'
+import VideoService from '../../services/VideoService'
 import ContentBlock from '../ContentBlock'
 import ContentCard from '../ContentCard'
 
 export default function Campaigns() {
-    const videos = useContext(VideoContext)
+    const [videos, setVideos] = useContext(VideoContext)
+
+    useEffect(() => {
+        VideoService.retrieve()
+            .then(data => setVideos(data))
+    }, [])
 
     return (
         <ContentBlock>
@@ -17,8 +23,8 @@ export default function Campaigns() {
             <div className="content__card__container">
                 { videos ? 
                     videos.map(video => (
-                        <ContentCard type="video" title={video.title} content={video} />
-                    ))    
+                        <ContentCard type="video" title={video.title} content={video.url} />
+                    ))   
                 :
                     null
                 }

@@ -10,13 +10,63 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./server/server.js":
-/*!**************************!*\
-  !*** ./server/server.js ***!
-  \**************************/
+/***/ "./server-src/api/fileRouter.js":
+/*!**************************************!*\
+  !*** ./server-src/api/fileRouter.js ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! http */ \"http\");\n/* harmony import */ var http__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(http__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! fs */ \"fs\");\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var ignore_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ignore-styles */ \"ignore-styles\");\n/* harmony import */ var ignore_styles__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ignore_styles__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var _shared_App__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../shared/App */ \"./shared/App.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_8__);\n// packages\n\n\n\n\n\n\n\n\n // app init\n\nvar app = express__WEBPACK_IMPORTED_MODULE_0___default()();\napp.use(express__WEBPACK_IMPORTED_MODULE_0___default().json()); // server\n\nvar port = process.env.PORT || 4000;\nhttp__WEBPACK_IMPORTED_MODULE_1___default().createServer(app).listen(port, function () {\n  console.log(\"server running in \".concat(\"development\", \" on port \").concat(port));\n}); // index route\n\napp.get('/:var(about|about/cv|blog|blog/[1-9999]|campaigns|case-study|case-study/[1-9999])?', function (req, res) {\n  var indexPath = path__WEBPACK_IMPORTED_MODULE_2___default().resolve(__dirname, '../', 'public', 'index.html');\n  var appHTML = react_dom_server__WEBPACK_IMPORTED_MODULE_6___default().renderToString( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.StaticRouter, {\n    location: req.url,\n    context: {}\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_shared_App__WEBPACK_IMPORTED_MODULE_7__.default, null)));\n  fs__WEBPACK_IMPORTED_MODULE_3___default().readFile(indexPath, 'utf-8', function (err, data) {\n    if (err) {\n      console.error(err);\n      return res.status(500).send('Something went wrong, please check server logs');\n    }\n\n    return res.status(200).send(data.replace('<div id=\"root\"></div>', \"<div id=\\\"root\\\">\".concat(appHTML, \"</div>\")));\n  });\n});\napp.use(express__WEBPACK_IMPORTED_MODULE_0___default().static('public'));\n\n//# sourceURL=webpack://martin/./server/server.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! fs */ \"fs\");\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _models_GridFile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/GridFile */ \"./server-src/models/GridFile.js\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _middleware__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../middleware */ \"./server-src/middleware.js\");\n/* harmony import */ var _models_Video__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../models/Video */ \"./server-src/models/Video.js\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n// packages\n\n\n\n\n\n // router \n\nvar fileRouter = express__WEBPACK_IMPORTED_MODULE_0___default().Router(); //routes\n// @method POST\n// @route /api/files/videos\n// @desc upload a video to db\n// @access public\n\nfileRouter.post('/videos', _middleware__WEBPACK_IMPORTED_MODULE_4__.fileExists, /*#__PURE__*/function () {\n  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {\n    var _req$body, title, url, newVideo;\n\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.prev = 0;\n\n            if (!req.file) {\n              _context.next = 3;\n              break;\n            }\n\n            return _context.abrupt(\"return\", res.status(209).json({\n              messages: [{\n                type: 'error'\n              }, {\n                message: 'A video with that name already exists'\n              }]\n            }));\n\n          case 3:\n            _req$body = req.body, title = _req$body.title, url = _req$body.url;\n            newVideo = new _models_Video__WEBPACK_IMPORTED_MODULE_5__.default({\n              title: title,\n              url: url\n            });\n            _context.next = 7;\n            return newVideo.save();\n\n          case 7:\n            return _context.abrupt(\"return\", res.status(201).json({\n              messages: [{\n                type: 'success'\n              }, {\n                message: 'Video successfully uploaded'\n              }]\n            }));\n\n          case 10:\n            _context.prev = 10;\n            _context.t0 = _context[\"catch\"](0);\n            return _context.abrupt(\"return\", res.status(500).send('Something went wrong: ' + _context.t0.message));\n\n          case 13:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, _callee, null, [[0, 10]]);\n  }));\n\n  return function (_x, _x2) {\n    return _ref.apply(this, arguments);\n  };\n}()); // @method GET\n// @route /api/files/videos\n// @desc get all videos \n// @access public\n\nfileRouter.get('/videos', /*#__PURE__*/function () {\n  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {\n    var videos;\n    return regeneratorRuntime.wrap(function _callee2$(_context2) {\n      while (1) {\n        switch (_context2.prev = _context2.next) {\n          case 0:\n            _context2.prev = 0;\n            _context2.next = 3;\n            return _models_Video__WEBPACK_IMPORTED_MODULE_5__.default.find();\n\n          case 3:\n            videos = _context2.sent;\n            res.json(videos.map(function (video) {\n              return {\n                title: video.title,\n                url: video.url\n              };\n            }));\n            _context2.next = 10;\n            break;\n\n          case 7:\n            _context2.prev = 7;\n            _context2.t0 = _context2[\"catch\"](0);\n            return _context2.abrupt(\"return\", res.status(500).send('Something went wrong: ' + _context2.t0.message));\n\n          case 10:\n          case \"end\":\n            return _context2.stop();\n        }\n      }\n    }, _callee2, null, [[0, 7]]);\n  }));\n\n  return function (_x3, _x4) {\n    return _ref2.apply(this, arguments);\n  };\n}()); // @method GET\n// @route /api/files/videos/:filename\n// @desc get a video by filename\n// @access public\n\nfileRouter.get('/videos/:filename', /*#__PURE__*/function () {\n  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {\n    var video, stream;\n    return regeneratorRuntime.wrap(function _callee3$(_context3) {\n      while (1) {\n        switch (_context3.prev = _context3.next) {\n          case 0:\n            _context3.prev = 0;\n\n            if (req.file) {\n              _context3.next = 3;\n              break;\n            }\n\n            return _context3.abrupt(\"return\", res.status(404).json({\n              messages: [{\n                type: 'error'\n              }, {\n                message: 'Unable to find file'\n              }]\n            }));\n\n          case 3:\n            _context3.next = 5;\n            return _models_GridFile__WEBPACK_IMPORTED_MODULE_2__.default.findOne({\n              filename: req.file\n            });\n\n          case 5:\n            video = _context3.sent;\n            res.header('Content-Type', video.contentType);\n            res.header('Content-Length', video.length);\n            stream = req.gfs.createReadStream({\n              filename: req.file\n            });\n            stream.pipe(res);\n            _context3.next = 15;\n            break;\n\n          case 12:\n            _context3.prev = 12;\n            _context3.t0 = _context3[\"catch\"](0);\n            return _context3.abrupt(\"return\", res.status(500).send('Something went wrong: ' + _context3.t0.message));\n\n          case 15:\n          case \"end\":\n            return _context3.stop();\n        }\n      }\n    }, _callee3, null, [[0, 12]]);\n  }));\n\n  return function (_x5, _x6) {\n    return _ref3.apply(this, arguments);\n  };\n}());\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (fileRouter);\n\n//# sourceURL=webpack://martin/./server-src/api/fileRouter.js?");
+
+/***/ }),
+
+/***/ "./server-src/config/db.js":
+/*!*********************************!*\
+  !*** ./server-src/config/db.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"connectDB\": () => (/* binding */ connectDB)\n/* harmony export */ });\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_0__);\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n\nvar connectDB = /*#__PURE__*/function () {\n  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {\n    var connection;\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.prev = 0;\n            _context.next = 3;\n            return mongoose__WEBPACK_IMPORTED_MODULE_0___default().connect(\"mongodb+srv://test:test@cluster0.1ltcy.mongodb.net/still-special--martin-agunwa?retryWrites=true&w=majority\", {\n              useNewUrlParser: true,\n              useUnifiedTopology: true\n            });\n\n          case 3:\n            connection = _context.sent;\n            console.log('DB Connected: ' + connection.connection.db.databaseName);\n            _context.next = 11;\n            break;\n\n          case 7:\n            _context.prev = 7;\n            _context.t0 = _context[\"catch\"](0);\n            console.error('Error connecting to DB: ' + _context.t0.message);\n            process.exit(1);\n\n          case 11:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, _callee, null, [[0, 7]]);\n  }));\n\n  return function connectDB() {\n    return _ref.apply(this, arguments);\n  };\n}();\n\n//# sourceURL=webpack://martin/./server-src/config/db.js?");
+
+/***/ }),
+
+/***/ "./server-src/middleware.js":
+/*!**********************************!*\
+  !*** ./server-src/middleware.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"fileExists\": () => (/* binding */ fileExists)\n/* harmony export */ });\n/* harmony import */ var _models_Video__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./models/Video */ \"./server-src/models/Video.js\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n\nvar fileExists = /*#__PURE__*/function () {\n  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res, next) {\n    var title, video;\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.prev = 0;\n            title = req.body.title;\n            _context.next = 4;\n            return _models_Video__WEBPACK_IMPORTED_MODULE_0__.default.findOne({\n              title: title.toLowerCase()\n            });\n\n          case 4:\n            video = _context.sent;\n            video ? req.file = video : req.file = null;\n            next();\n            _context.next = 12;\n            break;\n\n          case 9:\n            _context.prev = 9;\n            _context.t0 = _context[\"catch\"](0);\n            return _context.abrupt(\"return\", res.status(500).send('Something went wrong: ' + _context.t0.message));\n\n          case 12:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, _callee, null, [[0, 9]]);\n  }));\n\n  return function fileExists(_x, _x2, _x3) {\n    return _ref.apply(this, arguments);\n  };\n}();\n\n//# sourceURL=webpack://martin/./server-src/middleware.js?");
+
+/***/ }),
+
+/***/ "./server-src/models/GridFile.js":
+/*!***************************************!*\
+  !*** ./server-src/models/GridFile.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var gridfile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gridfile */ \"gridfile\");\n/* harmony import */ var gridfile__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(gridfile__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_1__);\n\n\nvar GridFile = mongoose__WEBPACK_IMPORTED_MODULE_1___default().model('GridFile', (gridfile__WEBPACK_IMPORTED_MODULE_0___default()));\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GridFile);\n\n//# sourceURL=webpack://martin/./server-src/models/GridFile.js?");
+
+/***/ }),
+
+/***/ "./server-src/models/Video.js":
+/*!************************************!*\
+  !*** ./server-src/models/Video.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_0__);\n\nvar VideoSchema = new (mongoose__WEBPACK_IMPORTED_MODULE_0___default().Schema)({\n  title: {\n    type: String,\n    required: true\n  },\n  url: {\n    type: String,\n    required: true\n  }\n});\nVideoSchema.pre('save', function () {\n  this.title = this.title.toLowerCase();\n});\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (mongoose__WEBPACK_IMPORTED_MODULE_0___default().model('Video', VideoSchema));\n\n//# sourceURL=webpack://martin/./server-src/models/Video.js?");
+
+/***/ }),
+
+/***/ "./server-src/server.js":
+/*!******************************!*\
+  !*** ./server-src/server.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! http */ \"http\");\n/* harmony import */ var http__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(http__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! fs */ \"fs\");\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var ignore_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ignore-styles */ \"ignore-styles\");\n/* harmony import */ var ignore_styles__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ignore_styles__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var _shared_App__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../shared/App */ \"./shared/App.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_8__);\n/* harmony import */ var _config_db__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./config/db */ \"./server-src/config/db.js\");\n/* harmony import */ var _api_fileRouter__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./api/fileRouter */ \"./server-src/api/fileRouter.js\");\n// packages\n\n\n\n\n\n\n\n\n\n\n // app init\n\nvar app = express__WEBPACK_IMPORTED_MODULE_0___default()();\napp.use(express__WEBPACK_IMPORTED_MODULE_0___default().json()); // server\n\nvar port = \"MISSING_ENV_VAR\".PORT || 4000;\nhttp__WEBPACK_IMPORTED_MODULE_1___default().createServer(app).listen(port, function () {\n  console.log(\"server running in \".concat(\"development\", \" on port \").concat(port));\n}); // db\n\n(0,_config_db__WEBPACK_IMPORTED_MODULE_9__.connectDB)(); // SPA routes\n\napp.get('/:var(about|about/cv|blog|blog/[1-9999]|campaigns|case-study|case-study/[1-9999])?', function (req, res) {\n  var indexPath = path__WEBPACK_IMPORTED_MODULE_2___default().resolve(__dirname, '../', 'public', 'index.html');\n  var appHTML = react_dom_server__WEBPACK_IMPORTED_MODULE_6___default().renderToString( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.StaticRouter, {\n    location: req.url,\n    context: {}\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_shared_App__WEBPACK_IMPORTED_MODULE_7__.default, null))); // inject stringified <App /> component into html file\n\n  fs__WEBPACK_IMPORTED_MODULE_3___default().readFile(indexPath, 'utf-8', function (err, data) {\n    if (err) {\n      console.error(err);\n      return res.status(500).send('Something went wrong, please check server logs');\n    }\n\n    return res.status(200).send(data.replace('<div id=\"root\"></div>', \"<div id=\\\"root\\\">\".concat(appHTML, \"</div>\")));\n  });\n});\napp.use(express__WEBPACK_IMPORTED_MODULE_0___default().static('public')); // file router\n\napp.use('/api/files', _api_fileRouter__WEBPACK_IMPORTED_MODULE_10__.default);\n\n//# sourceURL=webpack://martin/./server-src/server.js?");
 
 /***/ }),
 
@@ -56,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ ContentCard)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_player__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-player */ \"react-player\");\n/* harmony import */ var react_player__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_player__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ \"react-router\");\n/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router__WEBPACK_IMPORTED_MODULE_2__);\n\n\n // carouselStrip prop applies classes to style component if it forms part of a carousel strip\n// type applies classes to style component depending on if it contains an image or video (images link to the article in question, videos are just playable)\n\nfunction ContentCard(_ref) {\n  var theme = _ref.theme,\n      carouselStrip = _ref.carouselStrip,\n      type = _ref.type,\n      content = _ref.content,\n      title = _ref.title;\n  var history = (0,react_router__WEBPACK_IMPORTED_MODULE_2__.useHistory)();\n\n  function preventRightClick(e) {\n    e.preventDefault();\n  }\n\n  function redirect() {\n    type != 'video' ? history.push(content.url) : history.push('/campaigns');\n  }\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    onClick: redirect,\n    className: \"\".concat(title ? \"\" : \"content__card--no-title\", \" content__card \").concat(theme ? \"content__card--\" + theme : \"\", \" content__card--\").concat(type, \" \").concat(carouselStrip ? \"content__card--carousel\" : \"\")\n  }, title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h2\", {\n    className: \"content__card__heading\"\n  }, title) : null, type == 'video' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react_player__WEBPACK_IMPORTED_MODULE_1___default()), {\n    controls: true,\n    onContextMenu: preventRightClick,\n    className: \"content__card__video \".concat(carouselStrip ? \"content__card__video--carousel\" : \"\"),\n    url: content.video\n  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"img\", {\n    className: \"\".concat(title ? \"\" : \"content__card__image--no-title\", \" content__card__image \").concat(carouselStrip ? \"content__card__image--carousel\" : \"\"),\n    src: content.src ? content.src : content.images[0].src,\n    alt: content.alt ? content.alt : content.images[0].alt\n  }));\n}\n\n//# sourceURL=webpack://martin/./shared/components/ContentCard.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ ContentCard)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_player__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-player */ \"react-player\");\n/* harmony import */ var react_player__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_player__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ \"react-router\");\n/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router__WEBPACK_IMPORTED_MODULE_2__);\n\n\n // carouselStrip prop applies classes to style component if it forms part of a carousel strip\n// type applies classes to style component depending on if it contains an image or video (images link to the article in question, videos are just playable)\n\nfunction ContentCard(_ref) {\n  var theme = _ref.theme,\n      carouselStrip = _ref.carouselStrip,\n      type = _ref.type,\n      content = _ref.content,\n      title = _ref.title;\n  var history = (0,react_router__WEBPACK_IMPORTED_MODULE_2__.useHistory)();\n\n  function preventRightClick(e) {\n    e.preventDefault();\n  }\n\n  function redirect() {\n    type != 'video' ? history.push(content.url) : history.push('/campaigns');\n  }\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    onClick: redirect,\n    className: \"\".concat(title ? \"\" : \"content__card--no-title\", \" content__card \").concat(theme ? \"content__card--\" + theme : \"\", \" content__card--\").concat(type, \" \").concat(carouselStrip ? \"content__card--carousel\" : \"\")\n  }, title ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h2\", {\n    className: \"content__card__heading\"\n  }, title) : null, type == 'video' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react_player__WEBPACK_IMPORTED_MODULE_1___default()), {\n    controls: true,\n    onContextMenu: preventRightClick,\n    className: \"content__card__video \".concat(carouselStrip ? \"content__card__video--carousel\" : \"\"),\n    url: content\n  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"img\", {\n    className: \"\".concat(title ? \"\" : \"content__card__image--no-title\", \" content__card__image \").concat(carouselStrip ? \"content__card__image--carousel\" : \"\"),\n    src: content.src ? content.src : content.images[0].src,\n    alt: content.alt ? content.alt : content.images[0].alt\n  }));\n}\n\n//# sourceURL=webpack://martin/./shared/components/ContentCard.js?");
 
 /***/ }),
 
@@ -97,36 +147,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ SocialBar)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ \"@fortawesome/react-fontawesome\");\n/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _links__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../links */ \"./shared/links.js\");\n\n\n\nfunction SocialBar() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null, _links__WEBPACK_IMPORTED_MODULE_2__.socials ? _links__WEBPACK_IMPORTED_MODULE_2__.socials.map(function (social) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"a\", {\n      className: \"social\",\n      href: social.url,\n      target: \"_blank\"\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {\n      className: \"social\",\n      icon: social.icon,\n      size: social.size\n    }));\n  }) : null);\n}\n\n//# sourceURL=webpack://martin/./shared/components/SocialBar.js?");
-
-/***/ }),
-
-/***/ "./shared/components/carousel/AutoCarousel.js":
-/*!****************************************************!*\
-  !*** ./shared/components/carousel/AutoCarousel.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ AutoCarousel)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_responsive_carousel_lib_styles_carousel_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-responsive-carousel/lib/styles/carousel.min.css */ \"react-responsive-carousel/lib/styles/carousel.min.css\");\n/* harmony import */ var react_responsive_carousel_lib_styles_carousel_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_responsive_carousel_lib_styles_carousel_min_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_responsive_carousel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-responsive-carousel */ \"react-responsive-carousel\");\n/* harmony import */ var react_responsive_carousel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_responsive_carousel__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _CarouselSlide__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CarouselSlide */ \"./shared/components/carousel/CarouselSlide.js\");\n/* harmony import */ var _assets_slides_20191102_160240_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/slides/20191102_160240.jpg */ \"./shared/assets/slides/20191102_160240.jpg\");\n/* harmony import */ var _assets_slides_20191116_100837_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/slides/20191116_100837.jpg */ \"./shared/assets/slides/20191116_100837.jpg\");\n/* harmony import */ var _assets_slides_20191116_123414_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/slides/20191116_123414.jpg */ \"./shared/assets/slides/20191116_123414.jpg\");\n/* harmony import */ var _assets_slides_20191116_123421_jpg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../assets/slides/20191116_123421.jpg */ \"./shared/assets/slides/20191116_123421.jpg\");\n/* harmony import */ var _assets_slides_20191207_083856_jpg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../assets/slides/20191207_083856.jpg */ \"./shared/assets/slides/20191207_083856.jpg\");\n/* harmony import */ var _assets_slides_20201016_175254_jpg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../assets/slides/20201016_175254.jpg */ \"./shared/assets/slides/20201016_175254.jpg\");\n/* harmony import */ var _assets_slides_20201016_175308_jpg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../assets/slides/20201016_175308.jpg */ \"./shared/assets/slides/20201016_175308.jpg\");\n/* harmony import */ var _assets_slides_20201016_175319_jpg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../assets/slides/20201016_175319.jpg */ \"./shared/assets/slides/20201016_175319.jpg\");\n/* harmony import */ var _assets_slides_DSC_0312_JPG__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../assets/slides/DSC_0312.JPG */ \"./shared/assets/slides/DSC_0312.JPG\");\n/* harmony import */ var _assets_slides_DSC_0356_JPG__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../assets/slides/DSC_0356.JPG */ \"./shared/assets/slides/DSC_0356.JPG\");\n/* harmony import */ var _assets_slides_DSC_0374_JPG__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../assets/slides/DSC_0374.JPG */ \"./shared/assets/slides/DSC_0374.JPG\");\n/* harmony import */ var _assets_slides_DSC_0437_JPG__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../assets/slides/DSC_0437.JPG */ \"./shared/assets/slides/DSC_0437.JPG\");\n/* harmony import */ var _assets_slides_DSC_0442_JPG__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../assets/slides/DSC_0442.JPG */ \"./shared/assets/slides/DSC_0442.JPG\");\n/* harmony import */ var _assets_slides_IMG_20190128_WA0000_jpg__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../assets/slides/IMG-20190128-WA0000.jpg */ \"./shared/assets/slides/IMG-20190128-WA0000.jpg\");\n/* harmony import */ var _assets_slides_IMG_20190307_WA0000_jpg__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../assets/slides/IMG-20190307-WA0000.jpg */ \"./shared/assets/slides/IMG-20190307-WA0000.jpg\");\n/* harmony import */ var _assets_slides_IMG_20190307_WA0002_jpg__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../assets/slides/IMG-20190307-WA0002.jpg */ \"./shared/assets/slides/IMG-20190307-WA0002.jpg\");\n/* harmony import */ var _assets_slides_IMG_20190626_WA0014_jpg__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../assets/slides/IMG-20190626-WA0014.jpg */ \"./shared/assets/slides/IMG-20190626-WA0014.jpg\");\n/* harmony import */ var _assets_slides_IMG_20191102_WA0015_jpg__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../assets/slides/IMG-20191102-WA0015.jpg */ \"./shared/assets/slides/IMG-20191102-WA0015.jpg\");\n/* harmony import */ var _assets_slides_IMG_20191102_WA0019_jpg__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../assets/slides/IMG-20191102-WA0019.jpg */ \"./shared/assets/slides/IMG-20191102-WA0019.jpg\");\n/* harmony import */ var _assets_slides_IMG_20191107_WA0010_jpg__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../assets/slides/IMG-20191107-WA0010.jpg */ \"./shared/assets/slides/IMG-20191107-WA0010.jpg\");\n/* harmony import */ var _assets_slides_IMG_20191201_WA0005_jpg__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../assets/slides/IMG-20191201-WA0005.jpg */ \"./shared/assets/slides/IMG-20191201-WA0005.jpg\");\n/* harmony import */ var _assets_slides_IMG_20200301_WA0000_jpg__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../assets/slides/IMG-20200301-WA0000.jpg */ \"./shared/assets/slides/IMG-20200301-WA0000.jpg\");\n/* harmony import */ var _assets_slides_IMG_20200731_WA0004_jpg__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../../assets/slides/IMG-20200731-WA0004.jpg */ \"./shared/assets/slides/IMG-20200731-WA0004.jpg\");\n/* harmony import */ var _assets_slides_IMG_20201013_WA0019_jpg__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../../assets/slides/IMG-20201013-WA0019.jpg */ \"./shared/assets/slides/IMG-20201013-WA0019.jpg\");\n/* harmony import */ var _assets_slides_IMG_20201013_WA0026_jpg__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../../assets/slides/IMG-20201013-WA0026.jpg */ \"./shared/assets/slides/IMG-20201013-WA0026.jpg\");\n/* harmony import */ var _context_BlogContext__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../../context/BlogContext */ \"./shared/context/BlogContext.js\");\n/* harmony import */ var _context_VideoContext__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../../context/VideoContext */ \"./shared/context/VideoContext.js\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction AutoCarousel(_ref) {\n  var theme = _ref.theme;\n  var blogs = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_BlogContext__WEBPACK_IMPORTED_MODULE_29__.BlogContext);\n  var videos = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_VideoContext__WEBPACK_IMPORTED_MODULE_30__.VideoContext);\n  var images = [{\n    src: _assets_slides_20191102_160240_jpg__WEBPACK_IMPORTED_MODULE_4__.default,\n    alt: 'Martin standing with a team holding #ClaimingOurSpace signs'\n  }, {\n    src: _assets_slides_20191116_100837_jpg__WEBPACK_IMPORTED_MODULE_5__.default,\n    alt: 'Martin with a croud of people emceeing'\n  }, {\n    src: _assets_slides_20191116_123414_jpg__WEBPACK_IMPORTED_MODULE_6__.default,\n    alt: 'Martin with two other people broadcasting in a radio station'\n  }, {\n    src: _assets_slides_20191116_123421_jpg__WEBPACK_IMPORTED_MODULE_7__.default,\n    alt: 'Martin with two other people broadcasting in a radio station'\n  }, {\n    src: _assets_slides_20191207_083856_jpg__WEBPACK_IMPORTED_MODULE_8__.default,\n    alt: 'Selfshot of Martin at a road safety awareness event'\n  }, {\n    src: _assets_slides_20201016_175254_jpg__WEBPACK_IMPORTED_MODULE_9__.default,\n    alt: 'Martin holding a sign advocating against police brutality'\n  }, {\n    src: _assets_slides_20201016_175308_jpg__WEBPACK_IMPORTED_MODULE_10__.default,\n    alt: 'Martin holding a sign advocating against police brutality'\n  }, {\n    src: _assets_slides_20201016_175319_jpg__WEBPACK_IMPORTED_MODULE_11__.default,\n    alt: 'Martin holding a sign advocating against police brutality'\n  }, {\n    src: _assets_slides_DSC_0312_JPG__WEBPACK_IMPORTED_MODULE_12__.default,\n    alt: 'Martin speaking to an audience'\n  }, {\n    src: _assets_slides_DSC_0356_JPG__WEBPACK_IMPORTED_MODULE_13__.default,\n    alt: 'A photo of Martin with organisers of an event'\n  }, {\n    src: _assets_slides_DSC_0374_JPG__WEBPACK_IMPORTED_MODULE_14__.default,\n    alt: 'Martin speaking to the organisers of an event'\n  }, {\n    src: _assets_slides_DSC_0437_JPG__WEBPACK_IMPORTED_MODULE_15__.default,\n    alt: 'Martin at Jesus Kids\\' Home Nigeria'\n  }, {\n    src: _assets_slides_DSC_0442_JPG__WEBPACK_IMPORTED_MODULE_16__.default,\n    alt: 'Martin at Jesus Kids\\' Home Nigeria'\n  }, {\n    src: _assets_slides_IMG_20190128_WA0000_jpg__WEBPACK_IMPORTED_MODULE_17__.default,\n    alt: 'Martin speaking at an event'\n  }, {\n    src: _assets_slides_IMG_20190307_WA0000_jpg__WEBPACK_IMPORTED_MODULE_18__.default,\n    alt: 'Martin speaking at an event'\n  }, {\n    src: _assets_slides_IMG_20190307_WA0002_jpg__WEBPACK_IMPORTED_MODULE_19__.default,\n    alt: 'Martin speaking at an event'\n  }, {\n    src: _assets_slides_IMG_20190626_WA0014_jpg__WEBPACK_IMPORTED_MODULE_20__.default,\n    alt: 'Martin speaking at an event'\n  }, {\n    src: _assets_slides_IMG_20191102_WA0015_jpg__WEBPACK_IMPORTED_MODULE_21__.default,\n    alt: 'Martin planning #ClaimingOurSpace event'\n  }, {\n    src: _assets_slides_IMG_20191102_WA0019_jpg__WEBPACK_IMPORTED_MODULE_22__.default,\n    alt: 'Martin standing with a team holding #ClaimingOurSpace signs'\n  }, {\n    src: _assets_slides_IMG_20191107_WA0010_jpg__WEBPACK_IMPORTED_MODULE_23__.default,\n    alt: 'Martin planning #ClaimingOurSpace event'\n  }, {\n    src: _assets_slides_IMG_20191201_WA0005_jpg__WEBPACK_IMPORTED_MODULE_24__.default,\n    alt: 'Martin speaking at an event'\n  }, {\n    src: _assets_slides_IMG_20200301_WA0000_jpg__WEBPACK_IMPORTED_MODULE_25__.default,\n    alt: 'Martin standing on a hill with a team of people'\n  }, {\n    src: _assets_slides_IMG_20200731_WA0004_jpg__WEBPACK_IMPORTED_MODULE_26__.default,\n    alt: 'Martin speaking at an event'\n  }, {\n    src: _assets_slides_IMG_20201013_WA0019_jpg__WEBPACK_IMPORTED_MODULE_27__.default,\n    alt: 'Martin speaking at an event'\n  }, {\n    src: _assets_slides_IMG_20201013_WA0026_jpg__WEBPACK_IMPORTED_MODULE_28__.default,\n    alt: 'Martin speaking at an event'\n  }];\n\n  function generateSlides() {\n    var max = Math.max(blogs.length, videos.length, images.length);\n    var slides = [];\n\n    for (var x = 0; x < max; x++) {\n      var randomBlogIndex = Math.floor(Math.random() * blogs.length);\n      var randomImageIndex = Math.floor(Math.random() * images.length);\n      slides.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_CarouselSlide__WEBPACK_IMPORTED_MODULE_3__.default, {\n        theme: theme,\n        blog: blogs[randomBlogIndex],\n        video: videos.filter(function (video) {\n          return video.title == 'Still Special - Visualised Audio';\n        })[0],\n        image: images[randomImageIndex]\n      }));\n    }\n\n    return slides;\n  }\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_responsive_carousel__WEBPACK_IMPORTED_MODULE_2__.Carousel, {\n    autoPlay: true,\n    transitionTime: 1500,\n    interval: 10000,\n    stopOnHover: false,\n    showArrows: true,\n    showStatus: false,\n    showThumbs: false,\n    showIndicators: false,\n    infiniteLoop: true\n  }, generateSlides());\n}\n\n//# sourceURL=webpack://martin/./shared/components/carousel/AutoCarousel.js?");
-
-/***/ }),
-
-/***/ "./shared/components/carousel/CarouselSlide.js":
-/*!*****************************************************!*\
-  !*** ./shared/components/carousel/CarouselSlide.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ CarouselSlide)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _ContentCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ContentCard */ \"./shared/components/ContentCard.js\");\n\n\nfunction CarouselSlide(_ref) {\n  var theme = _ref.theme,\n      blog = _ref.blog,\n      video = _ref.video,\n      image = _ref.image;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"carousel__strip\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ContentCard__WEBPACK_IMPORTED_MODULE_1__.default, {\n    carouselStrip: true,\n    theme: theme,\n    title: blog.title,\n    type: \"image\",\n    content: blog\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ContentCard__WEBPACK_IMPORTED_MODULE_1__.default, {\n    carouselStrip: true,\n    theme: theme,\n    title: video.title,\n    type: \"video\",\n    content: video\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ContentCard__WEBPACK_IMPORTED_MODULE_1__.default, {\n    carouselStrip: true,\n    theme: theme,\n    type: \"image\",\n    content: image\n  }));\n}\n\n//# sourceURL=webpack://martin/./shared/components/carousel/CarouselSlide.js?");
-
-/***/ }),
-
-/***/ "./shared/components/carousel/CarouselStrip.js":
-/*!*****************************************************!*\
-  !*** ./shared/components/carousel/CarouselStrip.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ CarouselStrip)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _AutoCarousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AutoCarousel */ \"./shared/components/carousel/AutoCarousel.js\");\n\n\nfunction CarouselStrip(_ref) {\n  var theme = _ref.theme;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"carousel__block carousel__block--\".concat(theme)\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h1\", {\n    className: \"carousel__block__heading\"\n  }, \"Blogs and Campaign Videos\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AutoCarousel__WEBPACK_IMPORTED_MODULE_1__.default, {\n    theme: theme\n  }));\n}\n\n//# sourceURL=webpack://martin/./shared/components/carousel/CarouselStrip.js?");
 
 /***/ }),
 
@@ -216,7 +236,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Campaigns)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _context_VideoContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/VideoContext */ \"./shared/context/VideoContext.js\");\n/* harmony import */ var _ContentBlock__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ContentBlock */ \"./shared/components/ContentBlock.js\");\n/* harmony import */ var _ContentCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ContentCard */ \"./shared/components/ContentCard.js\");\n\n\n\n\nfunction Campaigns() {\n  var videos = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_VideoContext__WEBPACK_IMPORTED_MODULE_1__.VideoContext);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ContentBlock__WEBPACK_IMPORTED_MODULE_2__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h1\", {\n    className: \"content__block__heading\"\n  }, \"STILL SPECIAL CAMPAIGN\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"i\", null, \"Advocacy campaign to raise awareness about special needs children (autism, cerebral palsy, down syndrome and other cognitive development sufferers) in Nigeria.\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, \"Unfortunately, there still exists widespread ignorance in many parts of Nigeria as it relates to children suffering various forms of cognitive disabilities - autism, cerebral palsy, down syndrome among others.\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, \"it is very sad to see that these special kids in most instances are not only discriminated against or abused but are also being killed in many communities due to ignorant beliefs that they are curses.\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, \"This campaign seeks to call attention to the plight of special needs children in Nigeria and makes a case for an end to their stigmatization while calling for their equal integration into society.\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"content__card__container\"\n  }, videos ? videos.map(function (video) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ContentCard__WEBPACK_IMPORTED_MODULE_3__.default, {\n      type: \"video\",\n      title: video.title,\n      content: video\n    });\n  }) : null));\n}\n\n//# sourceURL=webpack://martin/./shared/components/pages/Campaigns.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Campaigns)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _context_VideoContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/VideoContext */ \"./shared/context/VideoContext.js\");\n/* harmony import */ var _services_VideoService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/VideoService */ \"./shared/services/VideoService.js\");\n/* harmony import */ var _ContentBlock__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ContentBlock */ \"./shared/components/ContentBlock.js\");\n/* harmony import */ var _ContentCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ContentCard */ \"./shared/components/ContentCard.js\");\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\n\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nfunction _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== \"undefined\" && arr[Symbol.iterator] || arr[\"@@iterator\"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\n\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\n\n\n\n\n\nfunction Campaigns() {\n  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_VideoContext__WEBPACK_IMPORTED_MODULE_1__.VideoContext),\n      _useContext2 = _slicedToArray(_useContext, 2),\n      videos = _useContext2[0],\n      setVideos = _useContext2[1];\n\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {\n    _services_VideoService__WEBPACK_IMPORTED_MODULE_2__.default.retrieve().then(function (data) {\n      return setVideos(data);\n    });\n  }, []);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ContentBlock__WEBPACK_IMPORTED_MODULE_3__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h1\", {\n    className: \"content__block__heading\"\n  }, \"STILL SPECIAL CAMPAIGN\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"i\", null, \"Advocacy campaign to raise awareness about special needs children (autism, cerebral palsy, down syndrome and other cognitive development sufferers) in Nigeria.\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, \"Unfortunately, there still exists widespread ignorance in many parts of Nigeria as it relates to children suffering various forms of cognitive disabilities - autism, cerebral palsy, down syndrome among others.\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, \"it is very sad to see that these special kids in most instances are not only discriminated against or abused but are also being killed in many communities due to ignorant beliefs that they are curses.\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", null, \"This campaign seeks to call attention to the plight of special needs children in Nigeria and makes a case for an end to their stigmatization while calling for their equal integration into society.\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"br\", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    className: \"content__card__container\"\n  }, videos ? videos.map(function (video) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ContentCard__WEBPACK_IMPORTED_MODULE_4__.default, {\n      type: \"video\",\n      title: video.title,\n      content: video.url\n    });\n  }) : null));\n}\n\n//# sourceURL=webpack://martin/./shared/components/pages/Campaigns.js?");
 
 /***/ }),
 
@@ -236,7 +256,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Home)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _ContentBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ContentBlock */ \"./shared/components/ContentBlock.js\");\n/* harmony import */ var _Quote__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Quote */ \"./shared/components/Quote.js\");\n/* harmony import */ var _assets_thumbnail_DSC_0263_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/thumbnail_DSC_0263.jpg */ \"./shared/assets/thumbnail_DSC_0263.jpg\");\n/* harmony import */ var _carousel_CarouselStrip__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../carousel/CarouselStrip */ \"./shared/components/carousel/CarouselStrip.js\");\n\n\n\n\n\nfunction Home() {\n  var heroImage = {\n    src: _assets_thumbnail_DSC_0263_jpg__WEBPACK_IMPORTED_MODULE_3__.default,\n    alt: 'Headshot of Martin Agunwa'\n  };\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    id: \"home\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ContentBlock__WEBPACK_IMPORTED_MODULE_1__.default, {\n    theme: \"dark\",\n    media: [heroImage],\n    mediaPosition: \"right\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    className: \"text-large\"\n  }, \"Public relations professional with a good grasp of marketing communications, event planning, corporate messaging and strategic branding. Possesses excellent knowledge of organization and people management as well as exceptional writing, speaking and editing skills and strong work ethic.\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Quote__WEBPACK_IMPORTED_MODULE_2__.default, {\n    text: \"Live for yourself and you will live in vain; Live for others and you will live again.\",\n    author: \"Bob Marley\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_carousel_CarouselStrip__WEBPACK_IMPORTED_MODULE_4__.default, {\n    theme: \"dark\"\n  }));\n}\n\n//# sourceURL=webpack://martin/./shared/components/pages/Home.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Home)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _ContentBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ContentBlock */ \"./shared/components/ContentBlock.js\");\n/* harmony import */ var _Quote__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Quote */ \"./shared/components/Quote.js\");\n/* harmony import */ var _assets_thumbnail_DSC_0263_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/thumbnail_DSC_0263.jpg */ \"./shared/assets/thumbnail_DSC_0263.jpg\");\n\n\n\n // import CarouselStrip from '../carousel/CarouselStrip' \n\nfunction Home() {\n  var heroImage = {\n    src: _assets_thumbnail_DSC_0263_jpg__WEBPACK_IMPORTED_MODULE_3__.default,\n    alt: 'Headshot of Martin Agunwa'\n  };\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", {\n    id: \"home\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ContentBlock__WEBPACK_IMPORTED_MODULE_1__.default, {\n    theme: \"dark\",\n    media: [heroImage],\n    mediaPosition: \"right\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"p\", {\n    className: \"text-large\"\n  }, \"Public relations professional with a good grasp of marketing communications, event planning, corporate messaging and strategic branding. Possesses excellent knowledge of organization and people management as well as exceptional writing, speaking and editing skills and strong work ethic.\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Quote__WEBPACK_IMPORTED_MODULE_2__.default, {\n    text: \"Live for yourself and you will live in vain; Live for others and you will live again.\",\n    author: \"Bob Marley\"\n  }));\n}\n\n//# sourceURL=webpack://martin/./shared/components/pages/Home.js?");
 
 /***/ }),
 
@@ -266,7 +286,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"VideoContext\": () => (/* binding */ VideoContext),\n/* harmony export */   \"VideoProvider\": () => (/* binding */ VideoProvider)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _assets_Still_Special_Campaign_Visualised_audio_Advocacy_to_raise_awarenes_about_the_plight_of_children_with_disabilities_in_rural_parts_of_Nigeria_Made_by_Headliner_mp4__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/Still Special Campaign (Visualised audio) - Advocacy to raise awarenes about the plight of children with disabilities in rural parts of Nigeria  (Made by Headliner).mp4 */ \"./shared/assets/Still Special Campaign (Visualised audio) - Advocacy to raise awarenes about the plight of children with disabilities in rural parts of Nigeria  (Made by Headliner).mp4\");\n/* harmony import */ var _assets_Untitled_Project_Made_by_Headliner_mp4__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/Untitled Project (Made by Headliner).mp4 */ \"./shared/assets/Untitled Project (Made by Headliner).mp4\");\n\n\n\nvar VideoContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)();\nfunction VideoProvider(_ref) {\n  var children = _ref.children;\n  var videos = [{\n    title: 'Still Special - Visualised Audio',\n    video: _assets_Still_Special_Campaign_Visualised_audio_Advocacy_to_raise_awarenes_about_the_plight_of_children_with_disabilities_in_rural_parts_of_Nigeria_Made_by_Headliner_mp4__WEBPACK_IMPORTED_MODULE_1__.default\n  }, {\n    title: 'Still Special - Human Interest Story',\n    video: _assets_Untitled_Project_Made_by_Headliner_mp4__WEBPACK_IMPORTED_MODULE_2__.default\n  }, {\n    title: 'Still Special - Instagram Story',\n    video: 'https://youtu.be/6LjNQRADMpk'\n  }];\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(VideoContext.Provider, {\n    value: videos\n  }, children);\n}\n\n//# sourceURL=webpack://martin/./shared/context/VideoContext.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"VideoContext\": () => (/* binding */ VideoContext),\n/* harmony export */   \"VideoProvider\": () => (/* binding */ VideoProvider)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\nfunction _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }\n\nfunction _nonIterableRest() { throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nfunction _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== \"undefined\" && arr[Symbol.iterator] || arr[\"@@iterator\"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i[\"return\"] != null) _i[\"return\"](); } finally { if (_d) throw _e; } } return _arr; }\n\nfunction _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }\n\n\nvar VideoContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)();\nfunction VideoProvider(_ref) {\n  var children = _ref.children;\n\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),\n      _useState2 = _slicedToArray(_useState, 2),\n      videos = _useState2[0],\n      setVideos = _useState2[1];\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(VideoContext.Provider, {\n    value: [videos, setVideos]\n  }, children);\n}\n\n//# sourceURL=webpack://martin/./shared/context/VideoContext.js?");
 
 /***/ }),
 
@@ -277,6 +297,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"routes\": () => (/* binding */ routes),\n/* harmony export */   \"socials\": () => (/* binding */ socials)\n/* harmony export */ });\n/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ \"@fortawesome/free-brands-svg-icons\");\n/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_0__);\n\nvar routes = [{\n  path: '/',\n  text: 'Home'\n}, {\n  path: '/about',\n  text: 'About',\n  dropdown: [{\n    path: '/about/cv',\n    text: 'Curriculum Vitae'\n  }]\n}, {\n  path: '/campaigns',\n  text: 'Campaigns'\n}, {\n  path: '/case-study',\n  text: 'Case Study'\n}, // {\n//     path: '/contact',\n//     text: 'Contact',\n// },\n{\n  path: '/blog',\n  text: 'Blog'\n}];\nvar socials = [{\n  name: 'twitter',\n  icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_0__.faTwitter,\n  size: '2x',\n  url: 'https://twitter.com/eazymartinez'\n}, {\n  name: 'facebook',\n  icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_0__.faFacebookF,\n  size: '2x',\n  url: 'https://www.facebook.com/marayo11/'\n}, {\n  name: 'instagram',\n  icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_0__.faInstagram,\n  size: '2x',\n  url: 'https://www.instagram.com/eazymartinez/'\n}, {\n  name: 'linkedin',\n  icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_0__.faLinkedin,\n  size: '2x',\n  url: 'https://www.linkedin.com/in/martin-agunwa-168491a9/'\n}];\n\n//# sourceURL=webpack://martin/./shared/links.js?");
+
+/***/ }),
+
+/***/ "./shared/services/VideoService.js":
+/*!*****************************************!*\
+  !*** ./shared/services/VideoService.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\n  upload: function upload() {},\n  retrieve: function retrieve() {\n    return fetch('/api/files/videos').then(function (res) {\n      return res.json();\n    }).then(function (data) {\n      return data;\n    });\n  }\n});\n\n//# sourceURL=webpack://martin/./shared/services/VideoService.js?");
 
 /***/ }),
 
@@ -450,16 +480,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./shared/assets/Still Special Campaign (Visualised audio) - Advocacy to raise awarenes about the plight of children with disabilities in rural parts of Nigeria  (Made by Headliner).mp4":
-/*!************************************************************************************************************************************************************************************************!*\
-  !*** ./shared/assets/Still Special Campaign (Visualised audio) - Advocacy to raise awarenes about the plight of children with disabilities in rural parts of Nigeria  (Made by Headliner).mp4 ***!
-  \************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"25492f5638eecd30536897fcc3c26e08.mp4\");\n\n//# sourceURL=webpack://martin/./shared/assets/Still_Special_Campaign_(Visualised_audio)_-_Advocacy_to_raise_awarenes_about_the_plight_of_children_with_disabilities_in_rural_parts_of_Nigeria__(Made_by_Headliner).mp4?");
-
-/***/ }),
-
 /***/ "./shared/assets/These-filtered-filthy-sound.jpg":
 /*!*******************************************************!*\
   !*** ./shared/assets/These-filtered-filthy-sound.jpg ***!
@@ -500,16 +520,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./shared/assets/Untitled Project (Made by Headliner).mp4":
-/*!****************************************************************!*\
-  !*** ./shared/assets/Untitled Project (Made by Headliner).mp4 ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"d2e88b9fbb560e0c7db277a4f03df0ef.mp4\");\n\n//# sourceURL=webpack://martin/./shared/assets/Untitled_Project_(Made_by_Headliner).mp4?");
-
-/***/ }),
-
 /***/ "./shared/assets/b90d69_1c81c3e0c0ee49408c5ee2e42ff0ed99_mv2.jpg":
 /*!***********************************************************************!*\
   !*** ./shared/assets/b90d69_1c81c3e0c0ee49408c5ee2e42ff0ed99_mv2.jpg ***!
@@ -527,256 +537,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"a9c85d4145e0a1693cee707e86b096cc.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/melancholy-of-unknown-selves.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/20191102_160240.jpg":
-/*!**************************************************!*\
-  !*** ./shared/assets/slides/20191102_160240.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"15036f2b82b25f0a3d71801b99f9317d.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/20191102_160240.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/20191116_100837.jpg":
-/*!**************************************************!*\
-  !*** ./shared/assets/slides/20191116_100837.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"66d61a8f7bf49b7639b8fb8aaaf35d04.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/20191116_100837.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/20191116_123414.jpg":
-/*!**************************************************!*\
-  !*** ./shared/assets/slides/20191116_123414.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"fe8b3630f7acee33f1e0743f2c955606.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/20191116_123414.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/20191116_123421.jpg":
-/*!**************************************************!*\
-  !*** ./shared/assets/slides/20191116_123421.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"0c92d40efa19f207218590bd2b6f9e0f.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/20191116_123421.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/20191207_083856.jpg":
-/*!**************************************************!*\
-  !*** ./shared/assets/slides/20191207_083856.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"8c74aba5456eebffc31aa19523a29b3d.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/20191207_083856.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/20201016_175254.jpg":
-/*!**************************************************!*\
-  !*** ./shared/assets/slides/20201016_175254.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"dff365d7dc7f57c7c5608a064d956734.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/20201016_175254.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/20201016_175308.jpg":
-/*!**************************************************!*\
-  !*** ./shared/assets/slides/20201016_175308.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"dedbed6458e4b08acf3ecabe53790cd5.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/20201016_175308.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/20201016_175319.jpg":
-/*!**************************************************!*\
-  !*** ./shared/assets/slides/20201016_175319.jpg ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"36fc8c6348c572ff11a756b7f26fd75c.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/20201016_175319.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/DSC_0312.JPG":
-/*!*******************************************!*\
-  !*** ./shared/assets/slides/DSC_0312.JPG ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"688ae4add4f95b1b0b64f99c2be776a6.JPG\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/DSC_0312.JPG?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/DSC_0356.JPG":
-/*!*******************************************!*\
-  !*** ./shared/assets/slides/DSC_0356.JPG ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"2d7478e9f636734d8df75e6e60ca885d.JPG\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/DSC_0356.JPG?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/DSC_0374.JPG":
-/*!*******************************************!*\
-  !*** ./shared/assets/slides/DSC_0374.JPG ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"aefdee9e624c9d5570c39b702c2b0cfc.JPG\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/DSC_0374.JPG?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/DSC_0437.JPG":
-/*!*******************************************!*\
-  !*** ./shared/assets/slides/DSC_0437.JPG ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"e1829d856330ad42305f8e2df200a9b6.JPG\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/DSC_0437.JPG?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/DSC_0442.JPG":
-/*!*******************************************!*\
-  !*** ./shared/assets/slides/DSC_0442.JPG ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"d12542ec9986ea0817acb0e453cbaee1.JPG\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/DSC_0442.JPG?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/IMG-20190128-WA0000.jpg":
-/*!******************************************************!*\
-  !*** ./shared/assets/slides/IMG-20190128-WA0000.jpg ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"1615d2c1c64b61b643f2d3e0b72a9c4e.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/IMG-20190128-WA0000.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/IMG-20190307-WA0000.jpg":
-/*!******************************************************!*\
-  !*** ./shared/assets/slides/IMG-20190307-WA0000.jpg ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"2dc54c72047a8ffbc696d52ed65559c2.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/IMG-20190307-WA0000.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/IMG-20190307-WA0002.jpg":
-/*!******************************************************!*\
-  !*** ./shared/assets/slides/IMG-20190307-WA0002.jpg ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"390d9b32f4074967650812b19421f332.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/IMG-20190307-WA0002.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/IMG-20190626-WA0014.jpg":
-/*!******************************************************!*\
-  !*** ./shared/assets/slides/IMG-20190626-WA0014.jpg ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"38b3088786dec53470c20988ff13db32.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/IMG-20190626-WA0014.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/IMG-20191102-WA0015.jpg":
-/*!******************************************************!*\
-  !*** ./shared/assets/slides/IMG-20191102-WA0015.jpg ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"fc0c6657105970d276540a5f23eecfe4.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/IMG-20191102-WA0015.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/IMG-20191102-WA0019.jpg":
-/*!******************************************************!*\
-  !*** ./shared/assets/slides/IMG-20191102-WA0019.jpg ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"7c0f4a60bb842e20e1304a9400c2d2f4.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/IMG-20191102-WA0019.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/IMG-20191107-WA0010.jpg":
-/*!******************************************************!*\
-  !*** ./shared/assets/slides/IMG-20191107-WA0010.jpg ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"2c61bd258dac8ddc1e66aa6297ed6479.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/IMG-20191107-WA0010.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/IMG-20191201-WA0005.jpg":
-/*!******************************************************!*\
-  !*** ./shared/assets/slides/IMG-20191201-WA0005.jpg ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"0cda324a6bbd649f1c4c8c22d3911aa7.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/IMG-20191201-WA0005.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/IMG-20200301-WA0000.jpg":
-/*!******************************************************!*\
-  !*** ./shared/assets/slides/IMG-20200301-WA0000.jpg ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"021d0abf35f1850c59c2784def24828f.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/IMG-20200301-WA0000.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/IMG-20200731-WA0004.jpg":
-/*!******************************************************!*\
-  !*** ./shared/assets/slides/IMG-20200731-WA0004.jpg ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"8d026e3cbc34191b3c1b06591517bfed.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/IMG-20200731-WA0004.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/IMG-20201013-WA0019.jpg":
-/*!******************************************************!*\
-  !*** ./shared/assets/slides/IMG-20201013-WA0019.jpg ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"9947999d3a3a35bd3a924eb2cdbda234.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/IMG-20201013-WA0019.jpg?");
-
-/***/ }),
-
-/***/ "./shared/assets/slides/IMG-20201013-WA0026.jpg":
-/*!******************************************************!*\
-  !*** ./shared/assets/slides/IMG-20201013-WA0026.jpg ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"f92f6cf5dbc5bb9dcb8f91b0405d455b.jpg\");\n\n//# sourceURL=webpack://martin/./shared/assets/slides/IMG-20201013-WA0026.jpg?");
 
 /***/ }),
 
@@ -860,6 +620,16 @@ module.exports = require("fs");;
 
 /***/ }),
 
+/***/ "gridfile":
+/*!***************************!*\
+  !*** external "gridfile" ***!
+  \***************************/
+/***/ ((module) => {
+
+module.exports = require("gridfile");;
+
+/***/ }),
+
 /***/ "http":
 /*!***********************!*\
   !*** external "http" ***!
@@ -877,6 +647,16 @@ module.exports = require("http");;
 /***/ ((module) => {
 
 module.exports = require("ignore-styles");;
+
+/***/ }),
+
+/***/ "mongoose":
+/*!***************************!*\
+  !*** external "mongoose" ***!
+  \***************************/
+/***/ ((module) => {
+
+module.exports = require("mongoose");;
 
 /***/ }),
 
@@ -937,26 +717,6 @@ module.exports = require("react-pdf/dist/esm/Page/AnnotationLayer.css");;
 /***/ ((module) => {
 
 module.exports = require("react-player");;
-
-/***/ }),
-
-/***/ "react-responsive-carousel":
-/*!********************************************!*\
-  !*** external "react-responsive-carousel" ***!
-  \********************************************/
-/***/ ((module) => {
-
-module.exports = require("react-responsive-carousel");;
-
-/***/ }),
-
-/***/ "react-responsive-carousel/lib/styles/carousel.min.css":
-/*!************************************************************************!*\
-  !*** external "react-responsive-carousel/lib/styles/carousel.min.css" ***!
-  \************************************************************************/
-/***/ ((module) => {
-
-module.exports = require("react-responsive-carousel/lib/styles/carousel.min.css");;
 
 /***/ }),
 
@@ -1057,7 +817,7 @@ module.exports = require("react-router-dom");;
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./server/server.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./server-src/server.js");
 /******/ 	
 /******/ })()
 ;
