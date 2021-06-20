@@ -1,10 +1,11 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 const webpack = require('webpack')
+const Dotenv = require('dotenv-webpack')
 
 
 module.exports = {
-    entry: './server/server.js',
+    entry: './server-src/server.js',
     output: {
         path: path.resolve(__dirname, 'server-dev'),
         filename: 'server.js',
@@ -32,6 +33,9 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             __isBrowser__: false 
+        }),
+        new Dotenv({
+            path: './server-src/config/local.env'
         })
     ]
 }

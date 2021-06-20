@@ -28,6 +28,7 @@ import carouselImage23 from '../../assets/slides/IMG-20200301-WA0000.jpg'
 import carouselImage24 from '../../assets/slides/IMG-20200731-WA0004.jpg'
 import carouselImage25 from '../../assets/slides/IMG-20201013-WA0019.jpg'
 import carouselImage26 from '../../assets/slides/IMG-20201013-WA0026.jpg'
+
 import { BlogContext } from '../../context/BlogContext';
 import { VideoContext } from '../../context/VideoContext';
 
@@ -142,11 +143,12 @@ export default function AutoCarousel({ theme }) {
         let max = Math.max(blogs.length, videos.length, images.length)
         let slides = []
 
+        let video = videos.filter(video => video.title == 'still special - visualised audio')[0]
         for (let x = 0; x < max; x++) {
             let randomBlogIndex = Math.floor(Math.random() * blogs.length)
             let randomImageIndex = Math.floor(Math.random() * images.length)
 
-            slides.push(<CarouselSlide theme={theme} blog={blogs[randomBlogIndex]} video={videos.filter(video => video.title == 'Still Special - Visualised Audio')[0]} image={images[randomImageIndex]} />)
+            slides.push(<CarouselSlide theme={theme} blog={blogs[randomBlogIndex]} video={video} image={images[randomImageIndex]} />)
         }
 
         return slides
@@ -154,7 +156,7 @@ export default function AutoCarousel({ theme }) {
 
     return (
         <Carousel autoPlay={true} transitionTime={1500} interval={10000} stopOnHover={false} showArrows={true} showStatus={false} showThumbs={false} showIndicators={false} infiniteLoop={true}>
-            { generateSlides() }
+            { videos && blogs ? generateSlides() : null }
         </Carousel>
     )
 }

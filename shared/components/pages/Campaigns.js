@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { VideoContext } from '../../context/VideoContext'
+import { titleCase } from '../../helpers'
 import ContentBlock from '../ContentBlock'
 import ContentCard from '../ContentCard'
 
@@ -17,8 +18,8 @@ export default function Campaigns() {
             <div className="content__card__container">
                 { videos ? 
                     videos.map(video => (
-                        <ContentCard type="video" title={video.title} content={video} />
-                    ))    
+                        <ContentCard type="video" title={titleCase(video.title)} content={video.url} />
+                    ))   
                 :
                     null
                 }

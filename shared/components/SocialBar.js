@@ -4,7 +4,7 @@ import { socials } from '../links'
 
 export default function SocialBar() {
     return (
-        <div>
+        <div className="social__bar">
             { socials ? 
                 socials.map(social => (
                     <a className="social" href={social.url} target="_blank">
