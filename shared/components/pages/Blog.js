@@ -4,6 +4,7 @@ import ContentBlock from '../ContentBlock'
 import ContentCard from '../ContentCard'
 import Article from '../Article'
 import { BlogContext } from '../../context/BlogContext'
+import { titleCase } from '../../helpers'
 
 export default function Blog() {
     const blogs = useContext(BlogContext)
@@ -16,7 +17,7 @@ export default function Blog() {
                     <div  className="content__card__container">
                         { blogs ? 
                             blogs.map(blog => (
-                                <ContentCard type="image" title={blog.title} content={blog} />
+                                <ContentCard type="image" title={titleCase(blog.title)} content={blog} />
                             ))   
                         :
                             null 
@@ -27,7 +28,7 @@ export default function Blog() {
             { blogs ? 
                 blogs.map(blog => (
                     <Route exact path={blog.url}>
-                        <Article title={blog.title} hero={blog.images[0]} chunks={blog.chunks} />
+                        <Article title={titleCase(blog.title)} hero={blog.images[0]} chunks={blog.chunks} />
                     </Route>
                 ))    
             :
