@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { socials } from '../links'
+import { socials } from '../routes'
 
 export default function SocialBar() {
     return (
