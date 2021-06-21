@@ -387,6 +387,10 @@ a.social {
     margin: 0 1.5em;
 }
 
+.content__card--carousel > .content__card__heading {
+    font-size: 1.5rem;
+}
+
 .content__card__video--carousel,
 .content__card__image--carousel {
     width: var(--content-card-image-carousel-width) !important;
