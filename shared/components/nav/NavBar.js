@@ -1,6 +1,6 @@
 import React from 'react'
 import NavItem from './NavItem'
-import { routes } from '../../links'
+import { routes } from '../../routes'
 
 export default function NavBar() {
 
