@@ -43,9 +43,6 @@ app.get('/:var(about|about/cv|blog|blog/[1-9999]|campaigns|case-study|case-study
             return res.status(500).send('Something went wrong, please check server logs')
         }
 
-        if (__isStaging__) {
-            res.header('X-Robots-Tag', 'noindex')
-        }
         return res.status(200).send(data.replace('<div id="root"></div>', `<div id="root">${appHTML}</div>`))
     })
 })
