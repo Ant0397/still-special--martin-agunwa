@@ -5,13 +5,18 @@ import ContentBlock from './ContentBlock'
 export default function Article({ title, hero, chunks, children }) {
     const history = useHistory()
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-
-        return function cleanup() {
+    if (__isBrowser__) {
+        useEffect(() => {
             window.scrollTo(0, 0)
-        }
-    }, [])
+    
+            return function cleanup() {
+                setTimeout(() => {
+                    window.scrollTo(0, 0)
+                }, 10)
+            }
+        }, [])
+    }
+
 
     return (
         <ContentBlock justifyText>
