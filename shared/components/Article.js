@@ -7,6 +7,10 @@ export default function Article({ title, hero, chunks, children }) {
 
     useEffect(() => {
         window.scrollTo(0, 0)
+
+        return function cleanup() {
+            window.scrollTo(0, 0)
+        }
     }, [])
 
     return (

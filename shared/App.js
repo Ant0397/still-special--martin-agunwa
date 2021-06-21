@@ -4,8 +4,8 @@ import Layout from './components/Layout'
 
 export default function App() {
     return (
-            <Switch>
-                <Layout />
-            </Switch>
+        <Switch>
+            <Layout />
+        </Switch>
     )
 }

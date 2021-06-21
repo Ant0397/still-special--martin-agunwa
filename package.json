@@ -9,6 +9,7 @@
   "scripts": {
     "build:client": "webpack",
     "build:server": "webpack --config webpack.server.js",
+    "build:server-staging": "webpack --config webpack.server.staging.js",
     "build:server-dev": "webpack --config webpack.server.dev.js",
     "start": "node ./server-build/server.js",
     "dev": "nodemon ./server-dev/server.js"
