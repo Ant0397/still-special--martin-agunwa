@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function ContentBlock({ theme, quote, children, media, mediaPosition, justifyText }) {
     return (
@@ -22,7 +22,7 @@ export default function ContentBlock({ theme, quote, children, media, mediaPosit
                     { media.map(item => (
                         <img src={item.src} alt={item.alt} />
                     )) }
-                </div>
+                </div>  
             : 
                 null
             }

@@ -4,10 +4,7 @@ import Blog from './pages/Blog'
 import Campaigns from './pages/Campaigns'
 import CaseStudies from './pages/CaseStudies'
 import Home from './pages/Home'
-import { BlogProvider } from './context/BlogContext'
-import { VideoProvider } from './context/VideoContext'
 import React from 'react'
-import { ArticleProvider } from './context/ArticleContext'
 
 export const routes = [
     {
@@ -16,11 +13,7 @@ export const routes = [
         theme: 'dark',
         text: 'Home',
         get component() { 
-                return <BlogProvider>
-                            <VideoProvider>
-                                <Home theme={this.theme} />
-                            </VideoProvider>
-                        </BlogProvider>
+            return <Home theme={this.theme} />
         }
     },
     {
@@ -38,17 +31,13 @@ export const routes = [
     },
     { 
         path: '/campaigns',
-        component: <VideoProvider>
-                        <Campaigns />
-                    </VideoProvider>,
+        component: <Campaigns />,
         theme: 'light',
         text: 'Campaigns',
     },
     {
         path: '/case-study',
-        component: <ArticleProvider>
-                        <CaseStudies />
-                    </ArticleProvider>,
+        component: <CaseStudies />,
         theme: 'light',
         hasNestedRoute: true,
         text: 'Case Study',
@@ -60,9 +49,7 @@ export const routes = [
     },
     {
         path: '/blog',
-        component: <BlogProvider>
-                        <Blog />
-                    </BlogProvider>,
+        component: <Blog />,
         theme: 'light',
         hasNestedRoute: true,
         text: 'Blog',

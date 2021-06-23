@@ -30,9 +30,7 @@ export default function CaseStudies() {
             { caseStudies ?
                 caseStudies.map(caseStudy => (
                     <Route exact path={caseStudy.url}>
-                        <Article title={caseStudy.title}>
-                            { console.log(caseStudy.content) }
-                        </Article>
+                        <Article content={caseStudy.content} title={titleCase(caseStudy.title)} />
                     </Route>
                 ))  
             :
