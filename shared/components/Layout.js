@@ -7,11 +7,14 @@ import Header from './Header'
 export default function Layout() {
     return (
         routes.map(route => (
-            <Route exact={route.exact ? true : false} path={route.path}>
-                <Header />
-                { route.component }
-                <Footer theme={route.theme} />
-            </Route>
+            !route.disabled ?
+                <Route exact={route.exact ? true : false} path={route.path}>
+                    <Header />
+                    { route.component }
+                    <Footer theme={route.theme} />
+                </Route>
+            :
+                null
         ))
     )
 }

@@ -27,6 +27,7 @@ export const routes = [
         text: 'About',
         component: <About />,
         theme: 'light',
+        hasNestedRoute: true,
         dropdown: [
             {
                 path: '/about/cv',
@@ -46,18 +47,21 @@ export const routes = [
         path: '/case-study',
         component: <CaseStudies />,
         theme: 'light',
+        hasNestedRoute: true,
         text: 'Case Study',
     },
-    // {
-    //     path: '/contact',
-    //     text: 'Contact',
-    // },
+    {
+        path: '/contact',
+        text: 'Contact',
+        disabled: true
+    },
     {
         path: '/blog',
         component: <BlogProvider>
                         <Blog />
                     </BlogProvider>,
         theme: 'light',
+        hasNestedRoute: true,
         text: 'Blog',
     }
 ]

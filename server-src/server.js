@@ -12,6 +12,7 @@ import { StaticRouter } from 'react-router-dom'
 import { connectDB } from './config/db'
 import fileRouter from './api/fileRouter'
 import blogRouter from './api/blogRouter'
+import { routes } from '../shared/routes'
 
 // app init
 const app = express()
@@ -27,8 +28,7 @@ http.createServer(app)
 // db
 connectDB()
 
-// SPA routes
-app.get('/:var(about|about/cv|blog|blog/[1-9999]|campaigns|case-study|case-study/[1-9999])?', (req, res) => {
+function sendApp(req, res) {
     const indexPath = path.resolve(__dirname, '../', 'public', 'index.html')
     const appHTML = ReactDOMServer.renderToString(
             <StaticRouter location={req.url} context={{}}>
@@ -45,6 +45,18 @@ app.get('/:var(about|about/cv|blog|blog/[1-9999]|campaigns|case-study|case-study
 
         return res.status(200).send(data.replace('<div id="root"></div>', `<div id="root">${appHTML}</div>`))
     })
+}
+
+// SPA routes
+routes.forEach(route => {
+    app.get(route.path, (req, res) => {
+        return sendApp(req, res)
+    })
+    if (route.hasNestedRoute) {
+        app.get(`${route.path}/:id`, (req, res) => {
+            return sendApp(req, res)
+        })
+    }
 })
 
 app.use(express.static('public'))

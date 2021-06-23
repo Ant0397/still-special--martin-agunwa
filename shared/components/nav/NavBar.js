@@ -7,7 +7,10 @@ export default function NavBar() {
     return (
         <div className="nav__links">
             { routes.map(route => (
-                <NavItem link={route} />
+                !route.disabled ?
+                    <NavItem link={route} />
+                :
+                    null
             ))}
         </div>
     )

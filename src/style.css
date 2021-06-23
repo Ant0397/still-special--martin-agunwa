@@ -261,6 +261,7 @@ a.social {
     margin: .5em;
     border-radius: 20px;
     box-shadow: 0 5px 10px black;
+    width: 30vw;
 }
 
 .content__card--dark {
