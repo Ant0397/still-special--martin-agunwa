@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import { BlogProvider } from './context/BlogContext'
 import { VideoProvider } from './context/VideoContext'
 import React from 'react'
+import { ArticleProvider } from './context/ArticleContext'
 
 export const routes = [
     {
@@ -45,7 +46,9 @@ export const routes = [
     },
     {
         path: '/case-study',
-        component: <CaseStudies />,
+        component: <ArticleProvider>
+                        <CaseStudies />
+                    </ArticleProvider>,
         theme: 'light',
         hasNestedRoute: true,
         text: 'Case Study',

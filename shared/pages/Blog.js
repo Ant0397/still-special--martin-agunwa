@@ -5,13 +5,16 @@ import ContentCard from '../components/ContentCard'
 import Article from '../components/Article'
 import { BlogContext } from '../context/BlogContext'
 import { titleCase } from '../helpers'
+import { useRouteMatch } from 'react-router-dom'
 
 export default function Blog() {
     const blogs = useContext(BlogContext)
 
+    const match = useRouteMatch()
+
     return (
         <Switch>
-            <Route exact path='/blog'>
+            <Route exact path={match.url}>
                 <ContentBlock>
                     <h1 className="content__block__heading">BLOG</h1>
                     <div className="content__card__container">
