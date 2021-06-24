@@ -43,12 +43,7 @@ videoRouter.post('/', recordExists, async (req, res) => {
 videoRouter.get('/', async (req, res) => {
     try {
         let videos = await Video.find()
-        res.json(videos.map(video => (
-            {
-                title: video.title,
-                url: video.url
-            }
-        )))
+        res.json(videos)
     } catch (e) {
         return res.status(500).json({ messages: [
             { type: 'error' },

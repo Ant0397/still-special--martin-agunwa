@@ -4,7 +4,6 @@ import ContentBlock from '../components/ContentBlock'
 import ContentCard from '../components/ContentCard'
 import Article from '../components/Article'
 import { ArticleContext } from '../context/ArticleContext'
-import { titleCase } from '../helpers'
 
 export default function CaseStudies() {
     const match = useRouteMatch()
@@ -19,7 +18,7 @@ export default function CaseStudies() {
                     <div  className="content__card__container">
                         { caseStudies ? 
                             caseStudies.map(caseStudy => (
-                                <ContentCard type="image" title={titleCase(caseStudy.title)} content={caseStudy} />
+                                <ContentCard type="image" title={caseStudy.shortTitle} content={caseStudy} />
                             ))    
                         :
                             null
@@ -30,7 +29,7 @@ export default function CaseStudies() {
             { caseStudies ?
                 caseStudies.map(caseStudy => (
                     <Route exact path={caseStudy.url}>
-                        <Article content={caseStudy.content} title={titleCase(caseStudy.title)} />
+                        <Article content={caseStudy} />
                     </Route>
                 ))  
             :

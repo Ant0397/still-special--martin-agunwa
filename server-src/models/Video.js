@@ -1,7 +1,11 @@
 import mongoose from 'mongoose'
 
 const VideoSchema = new mongoose.Schema({
-    title: {
+    name: {
+        type: String,
+        required: true
+    },
+    shortTitle: {
         type: String,
         required: true
     },
@@ -12,7 +16,7 @@ const VideoSchema = new mongoose.Schema({
 })
 
 VideoSchema.pre('save', function() {
-    this.title = this.title.toLowerCase()
+    this.name = this.name.toLowerCase()
 })
 
 export default mongoose.model('Video', VideoSchema)

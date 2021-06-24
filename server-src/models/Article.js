@@ -1,13 +1,25 @@
 import mongoose from 'mongoose'
 
 const ArticleSchema = new mongoose.Schema({
-    title: {
+    name: {
         type: String,
         required: true
     },
-    heroImg: {
+    shortTitle: {
         type: String,
-        required: false
+        required: true
+    },
+    longTitle: {
+        type: String,
+        required: true
+    },
+    heroImgSrc: {
+        type: String,
+        required: true
+    },
+    heroImgAlt: {
+        type: String,
+        required: true
     },
     content: {
         type: String,
@@ -24,7 +36,7 @@ const ArticleSchema = new mongoose.Schema({
 })
 
 ArticleSchema.pre('save', function() {
-    this.title = this.title.toLowerCase()
+    this.name = this.name.toLowerCase()
 })
 
 export default mongoose.model('Article', ArticleSchema)

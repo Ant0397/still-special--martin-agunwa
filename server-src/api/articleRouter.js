@@ -2,6 +2,7 @@
 import express from 'express'
 import Article from '../models/Article'
 import mammoth from 'mammoth'
+import fs from 'fs'
 import { recordExists } from '../middleware'
 
 // router
@@ -22,27 +23,34 @@ articleRouter.post('/', recordExists, async (req, res) => {
             ]})
         }
 
-        let { title, type, path } = req.body
+        let { name, shortTitle, longTitle, type, heroImgSrc, heroImgAlt, path } = req.body
     
-        let url = `/${type}/${title.toLowerCase().replace(/ /g, '-')}`
+        let url = `/${type}/${shortTitle.toLowerCase().replace(/( |_)/g, '-').replace(/(!|<|>|\+|#|\(|\)|{|}|\[|\]|=|"|£|\$|%|\^|&|\*|:|@|\'|\/|\.|,|\/|\?)/g, '')}`
     
         let content = await mammoth.convertToHtml({ path })
             .then(result => {
                 return result.value
             })
-    
-        let article = new Article({
-            title,
-            content,
-            type,
-            url
-        })
 
-        await article.save()
-        return res.status(201).json({ messages: [
-            { type: 'success' },
-            { message: 'Article successfully uploaded' }
-        ]})
+        fs.readFile(heroImgSrc, null, async (err, data) => {
+            let src = `data:image/${heroImgSrc.split('.')[1]};base64,${Buffer.from(data).toString('base64')}`
+            let article = new Article({
+                name,
+                shortTitle,
+                longTitle,
+                heroImgSrc: src,
+                heroImgAlt,
+                content,
+                type,
+                url
+            })
+
+            await article.save()
+            return res.status(201).json({ messages: [
+                { type: 'success' },
+                { message: 'Article successfully uploaded' }
+            ]})
+    })
 
     } catch (e) {
         return res.status(500).json({ messages: [
@@ -50,13 +58,10 @@ articleRouter.post('/', recordExists, async (req, res) => {
             { message: 'Something went wrong: ' + e.message }
         ]})
     }
-
-    
 })
 
-articleRouter.get('/:type', async (req, res) => {
-    let { type } = req.params
-    let articles = await Article.find({ type })
+articleRouter.get('/', async (req, res) => {
+    let articles = await Article.find()
     res.json(articles)
 })
 

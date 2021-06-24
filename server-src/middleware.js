@@ -14,7 +14,7 @@ export const recordExists = async (req, res, next) => {
     }
 
     try {
-        let record = await Collection.findOne({ title: req.body.title.toLowerCase() })
+        let record = await Collection.findOne({ name: req.body.name.toLowerCase() })
         record ? req.record = record : req.record = null
         next()
     } catch (e) {

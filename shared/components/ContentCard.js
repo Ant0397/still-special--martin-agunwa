@@ -22,7 +22,7 @@ export default function ContentCard({ theme, carouselStrip, type, content, title
             { type == 'video' ?
                 <ReactPlayer controls={true} onContextMenu={preventRightClick} className={`content__card__video ${carouselStrip ? "content__card__video--carousel" : ""}`} url={content} />
             : 
-              null  // <img className={`${title ? "" : "content__card__image--no-title"} content__card__image ${carouselStrip ? "content__card__image--carousel" : ""}`} src={content.src ? content.src : content.images[0].src} alt={content.alt ? content.alt : content.images[0].alt} />
+              <img className={`${title ? "" : "content__card__image--no-title"} content__card__image ${carouselStrip ? "content__card__image--carousel" : ""}`} src={content.src ? content.src : content.heroImgSrc} alt={content.alt ? content.alt : content.heroImgAlt} />
             }
         </div>
     )

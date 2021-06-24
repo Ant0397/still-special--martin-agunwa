@@ -218,6 +218,11 @@ a.social {
     color: var(--clr-highlight);
 }
 
+.content__block__body > p > img {
+    max-width: 75vw;
+    margin: 2em 4em;
+}
+
 .content__block__body > img,
 .content__block__body > div,
 .content__block__body > div > img {
@@ -258,10 +263,10 @@ a.social {
     flex-direction: column;
     background: linear-gradient(to right, var(--clr-hightlight-transparent), #fcc42b9b);
     padding: 2em;
-    margin: .5em;
+    margin: 1em;
     border-radius: 20px;
     box-shadow: 0 5px 10px black;
-    width: 30vw;
+    width: 25vw;
 }
 
 .content__card--dark {

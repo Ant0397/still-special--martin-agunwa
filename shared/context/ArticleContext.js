@@ -1,18 +1,22 @@
 import React, { createContext, useEffect, useState } from 'react'
+import ArticleService from '../services/ArticleService'
 
 export const ArticleContext = createContext()
 
 export function ArticleProvider({ children }) {
-    const [articles, setArticles] = useState(null)
+    const [caseStudies, setCaseStudies] = useState(null)
+    const [blogs, setBlogs] = useState(null)
 
     useEffect(() => {
-        fetch('/api/articles/case-study')
-            .then(res => res.json())
-            .then(data => setArticles(data))
+        ArticleService.retrieve()
+            .then(data => {
+                setCaseStudies(data.filter(article => article.type == 'case-study'))
+                setBlogs(data.filter(article => article.type == 'blog'))
+            })
     }, [])
 
     return (
-        <ArticleContext.Provider value={[articles, setArticles]}>
+        <ArticleContext.Provider value={[caseStudies, setCaseStudies, blogs, setBlogs]}>
             { children }
         </ArticleContext.Provider>
     )
