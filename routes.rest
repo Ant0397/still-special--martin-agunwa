@@ -1,4 +1,4 @@
-POST http://localhost:4000/api/files/videos
+POST http://localhost:4000/api/videos
 Content-Type: application/json
 
 {
@@ -8,17 +8,23 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:4000/api/files/videos
+GET http://localhost:4000/api/videos
 
 ###
 
-POST http://localhost:4000/api/blogs
+GET http://localhost:4000/api/articles/case-study
+
+###
+
+POST http://localhost:4000/api/articles
 Content-Type: application/json
 
 {
-
+    "name": "MIND YOUR LANGuAGE: RACISM AND THE SYMBOLISM OF WORDS",
+    "shortTitle": "MIND YOUR LANGUAGE: RACISM AND THE SYMBOLISM OF WORDS",  
+    "longTitle": "MIND YOUR LANGUAGE: RACISM AND THE SYMBOLISM OF WORDS",
+    "type": "blog", 
+    "heroImgSrc": "/Users/antnewman/Desktop/Projects/still-special--martin-agunwa/words have power 1.jpg",
+    "heroImgAlt": "'Words have power' written on a chalk board",
+    "path": "/Users/antnewman/Desktop/Projects/still-special--martin-agunwa/MIND YOUR LANGUAGE - RACISM AND THE SYMBOLISM OF WORDS (Thought Leadership Article) (Publication).docx"
 }
-
-###
-
-GET http://localhost:4000/api/blogs

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import SocialBar from '../SocialBar'
 import NavBar from './NavBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

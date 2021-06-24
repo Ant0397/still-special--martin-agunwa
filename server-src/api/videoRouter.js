@@ -1,20 +1,20 @@
 // packages
 import express from 'express'
-import { fileExists } from '../middleware'
+import { recordExists } from '../middleware'
 import Video from '../models/Video'
 
 // router 
-const fileRouter = express.Router()
+const videoRouter = express.Router()
 
 //routes
 
 // @method POST
-// @route /api/files/videos
+// @route /api/videos
 // @desc upload a video to db
 // @access private
-fileRouter.post('/videos', fileExists, async (req, res) => {
+videoRouter.post('/', recordExists, async (req, res) => {
     try {
-        if (req.file) {
+        if (req.record) {
             return res.status(209).json({ messages: [
                 { type: 'error' },
                 { message: 'A video with that name already exists' }
@@ -29,27 +29,27 @@ fileRouter.post('/videos', fileExists, async (req, res) => {
             { message: 'Video successfully uploaded' }
         ]})
     } catch (e) {
-        return res.status(500).send('Something went wrong: ' + e.message)
+        return res.status(500).json({ messages: [
+            { type: 'error' },
+            { message: 'Something went wrong: ' + e.message }
+        ]})
     }
 })
 
 // @method GET
-// @route /api/files/videos
+// @route /api/videos
 // @desc get all videos 
 // @access public
-fileRouter.get('/videos', async (req, res) => {
+videoRouter.get('/', async (req, res) => {
     try {
         let videos = await Video.find()
-        res.json(videos.map(video => (
-            {
-                title: video.title,
-                url: video.url
-            }
-        )))
+        res.json(videos)
     } catch (e) {
-        return res.status(500).send('Something went wrong: ' + e.message)
-
+        return res.status(500).json({ messages: [
+            { type: 'error' },
+            { message: 'Something went wrong: ' + e.message }
+        ]})
     }
 })
 
-export default fileRouter
+export default videoRouter

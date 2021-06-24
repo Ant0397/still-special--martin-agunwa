@@ -2,7 +2,7 @@ export default {
     upload: () => {
     },
     retrieve: () => {
-        return fetch('/api/videos')
+        return fetch('/api/articles')
             .then(res => res.json())
             .then(data => data)
     }

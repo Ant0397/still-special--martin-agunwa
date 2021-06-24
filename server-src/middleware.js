@@ -1,12 +1,26 @@
+import Article from "./models/Article"
 import Video from "./models/Video"
 
-export const fileExists = async (req, res, next) => {
+// checks db collection for an existing record
+export const recordExists = async (req, res, next) => {
+    let Collection 
+    switch (req.baseUrl) {
+        case '/api/videos':
+            Collection = Video 
+            break 
+
+        case '/api/articles':
+            Collection = Article
+    }
+
     try {
-        let { title } = req.body
-        let video = await Video.findOne({ title: title.toLowerCase() })
-        video ? req.file = video : req.file = null
+        let record = await Collection.findOne({ name: req.body.name.toLowerCase() })
+        record ? req.record = record : req.record = null
         next()
     } catch (e) {
-        return res.status(500).send('Something went wrong: ' + e.message)
+        return res.status(500).json({ messages: [
+            { type: 'error' },
+            { message: 'Something went wrong: ' + e.message }
+        ]})
     }
 }
