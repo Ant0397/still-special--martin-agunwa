@@ -1,16 +1,12 @@
-import Article from "./models/Article"
-import Video from "./models/Video"
+import Content from "./models/Content"
 
 // checks db collection for an existing record
 export const recordExists = async (req, res, next) => {
     let Collection 
     switch (req.baseUrl) {
-        case '/api/videos':
-            Collection = Video 
+        case '/api/content':
+            Collection = Content 
             break 
-
-        case '/api/articles':
-            Collection = Article
     }
 
     try {

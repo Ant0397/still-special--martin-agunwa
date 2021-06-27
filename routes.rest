@@ -16,15 +16,44 @@ GET http://localhost:4000/api/articles/case-study
 
 ###
 
-POST http://localhost:4000/api/articles
+POST http://localhost:4000/api/content
 Content-Type: application/json
 
 {
-    "name": "MIND YOUR LANGuAGE: RACISM AND THE SYMBOLISM OF WORDS",
-    "shortTitle": "MIND YOUR LANGUAGE: RACISM AND THE SYMBOLISM OF WORDS",  
-    "longTitle": "MIND YOUR LANGUAGE: RACISM AND THE SYMBOLISM OF WORDS",
-    "type": "blog", 
-    "heroImgSrc": "/Users/antnewman/Desktop/Projects/still-special--martin-agunwa/words have power 1.jpg",
-    "heroImgAlt": "'Words have power' written on a chalk board",
-    "path": "/Users/antnewman/Desktop/Projects/still-special--martin-agunwa/MIND YOUR LANGUAGE - RACISM AND THE SYMBOLISM OF WORDS (Thought Leadership Article) (Publication).docx"
+    "name": "still special - visualised audio",
+    "shortTitle": "Still Special - Visualised Audio",  
+    "category": "video",
+    "subCategory": "campaign",
+    "streamLink": "https://www.youtube.com/watch?v=OlvG8xvnFIw", 
+    "views": 0,
+    "likes": 0
 }
+
+###
+
+POST http://localhost:4000/api/content
+Content-Type: application/json
+
+{
+    "name": "MIND YOUR LANGUAGE: RACISM AND THE SYMBOLISM OF WORDS",
+    "shortTitle": "MIND YOUR LANGUAGE",  
+    "longTitle": "MIND YOUR LANGUAGE: RACISM AND THE SYMBOLISM OF WORDS",
+    "thumbnailImgSrc": "/Users/antnewman/Desktop/Projects/still-special--martin-agunwa/words have power 1.jpg",
+    "thumbnailImgAlt": "'Words have power' written on a chalk board",
+    "path": "/Users/antnewman/Desktop/Projects/still-special--martin-agunwa/MIND YOUR LANGUAGE - RACISM AND THE SYMBOLISM OF WORDS (Thought Leadership Article) (Publication).docx",
+    "category": "article",
+    "subCategory": "blog",
+    "views": 0,
+    "likes": 0
+}
+
+###
+
+PATCH http://localhost:4000/api/analytics
+Content-Type: application/json
+
+{
+    "name": "THESE FILTERED FILTHY SOUNDS",
+    "analytic": "likes",
+    "value": 0
+}   

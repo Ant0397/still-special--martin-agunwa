@@ -30,7 +30,7 @@ export const routes = [
         ]
     },
     { 
-        path: '/campaigns',
+        path: '/campaign',
         component: <Campaigns />,
         theme: 'light',
         text: 'Campaigns',

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const ArticleSchema = new mongoose.Schema({
+const ContentSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -11,32 +11,44 @@ const ArticleSchema = new mongoose.Schema({
     },
     longTitle: {
         type: String,
-        required: true
+        required: false
     },
-    heroImgSrc: {
+    thumbnailImgSrc: {
         type: String,
-        required: true
+        required: false
     },
-    heroImgAlt: {
+    thumbnailImgAlt: {
         type: String,
-        required: true
+        required: false
     },
     content: {
         type: String,
         required: true
     },
-    type: {
+    category: {
+        type: String,
+        required: true
+    },
+    subCategory: {
         type: String,
         required: true
     },
     url: {
         type: String,
+        required: false
+    },
+    views: {
+        type: Number,
         required: true
+    },
+    likes: {
+        type: Number,
+        required: true 
     }
 })
 
-ArticleSchema.pre('save', function() {
+ContentSchema.pre('save', function() {
     this.name = this.name.toLowerCase()
 })
 
-export default mongoose.model('Article', ArticleSchema)
+export default mongoose.model('Content', ContentSchema)

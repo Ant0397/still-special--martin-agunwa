@@ -10,9 +10,8 @@ import ReactDOMServer from 'react-dom/server'
 import App from '../shared/App'
 import { StaticRouter } from 'react-router-dom'
 import { connectDB } from './config/db'
-import videoRouter from './api/videoRouter'
-import articleRouter from './api/articleRouter'
 import { routes } from '../shared/routes'
+import contentRouter from './api/contentRouter'
 
 // app init
 const app = express()
@@ -61,8 +60,5 @@ routes.forEach(route => {
 
 app.use(express.static('public'))
 
-// file router
-app.use('/api/videos', videoRouter)
-
-// article router
-app.use('/api/articles', articleRouter)
+// content router
+app.use('/api/content', contentRouter)

@@ -258,15 +258,45 @@ a.social {
 
 .content__card {
     display: flex;
+    cursor: default;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    text-decoration: none;
+    color: black;
     background: linear-gradient(to right, var(--clr-hightlight-transparent), #fcc42b9b);
     padding: 2em;
     margin: 1em;
     border-radius: 20px;
     box-shadow: 0 5px 10px black;
     width: 25vw;
+}
+
+.analytics__bar {
+    display: flex;
+    justify-content: space-around;
+    margin: 1em 0 -1em 0;
+    width: 100%;
+}
+
+.analytic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.analytic > svg {
+    margin-right: .5em;
+}
+
+.liked {
+    color: red;
+}
+
+.like:hover {
+    color: red;
+    transition-duration: 300ms;
+    cursor: pointer;
 }
 
 .content__card--dark {
@@ -293,18 +323,17 @@ a.social {
     text-align: center;
 }
 
-.content__card__video {
-    cursor: pointer;
-    background-color: black;
-    width: var(--content-card-image-width) !important;
-    height: var(--content-card-image-height) !important;    
-}
-
 .content__card__image {
     width: var(--content-card-image-width);
     height: var(--content-card-image-height);
     object-fit: cover;
     background-color: transparent;
+}
+
+.content__card__video {
+    background-color: black;
+    width: var(--content-card-image-width) !important;
+    height: var(--content-card-image-height) !important;
 }
 
 .video:hover {
@@ -391,13 +420,13 @@ a.social {
     height: calc(var(--content-card-image-carousel-height) * 2);
     box-shadow: none;
     margin: 0 1.5em;
+    height: 40vh;
 }
 
 .content__card--carousel > .content__card__heading {
     font-size: 1.5rem;
 }
 
-.content__card__video--carousel,
 .content__card__image--carousel {
     width: var(--content-card-image-carousel-width) !important;
     height: var(--content-card-image-carousel-height) !important;
@@ -417,9 +446,9 @@ a.social {
 }
 
 .content__card__image--no-title {
-    height: calc(var(--content-card-image-carousel-height) * 2) !important;
-    width: calc(var(--content-card-image-carousel-width) * 1.25) !important;
     border-radius: 20px;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 .carousel-slider {
@@ -458,8 +487,7 @@ a.social {
 
 @media screen and (max-width: 420px) {
     .content__card--carousel,
-    .content__card__image--carousel,
-    .content__card__video--carousel {
+    .content__card__image--carousel {
         width: 90% !important;
     }
 }
@@ -471,10 +499,6 @@ a.social {
 
     .content__card--carousel {
         margin: 1em 0;
-    }
-
-    .content__card__image--no-title {
-        width: 100% !important;
     }
 
     .content__card__container {
@@ -538,11 +562,6 @@ a.social {
         height: 20vw;
     }
 
-    .content__card__video {
-        width: 30vw !important;
-        height: 20vw !important;
-    }
-
     .react-pdf__Page__canvas {
         width: 61vw !important;
         height: 79vw !important;
@@ -595,10 +614,5 @@ a.social {
     .content__card__image {
         width: 65vw;
         height: 40vw;
-    }
-
-    .content__card__video {
-        width: 65vw !important;
-        height: 40vw !important;
     }
 }

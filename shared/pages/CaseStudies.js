@@ -3,12 +3,12 @@ import { Route, Switch, useRouteMatch } from 'react-router'
 import ContentBlock from '../components/ContentBlock'
 import ContentCard from '../components/ContentCard'
 import Article from '../components/Article'
-import { ArticleContext } from '../context/ArticleContext'
+import { ContentContext } from '../context/ContentContext'
 
 export default function CaseStudies() {
     const match = useRouteMatch()
 
-    const [caseStudies, setCaseStudies] = useContext(ArticleContext)
+    const [caseStudies] = useContext(ContentContext)
 
     return (
         <Switch>
@@ -18,7 +18,7 @@ export default function CaseStudies() {
                     <div  className="content__card__container">
                         { caseStudies ? 
                             caseStudies.map(caseStudy => (
-                                <ContentCard type="image" title={caseStudy.shortTitle} content={caseStudy} />
+                                <ContentCard content={caseStudy} />
                             ))    
                         :
                             null

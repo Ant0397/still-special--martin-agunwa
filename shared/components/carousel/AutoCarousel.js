@@ -29,12 +29,10 @@ import carouselImage24 from '../../assets/slides/IMG-20200731-WA0004.jpg'
 import carouselImage25 from '../../assets/slides/IMG-20201013-WA0019.jpg'
 import carouselImage26 from '../../assets/slides/IMG-20201013-WA0026.jpg'
 
-import { VideoContext } from '../../context/VideoContext';
-import { ArticleContext } from '../../context/ArticleContext';
+import { ContentContext } from '../../context/ContentContext';
 
 export default function AutoCarousel({ theme }) {
-    const videos = useContext(VideoContext)
-    const [caseStudies, setCaseStudies, blogs, setBlogs] = useContext(ArticleContext)
+    const [caseStudies, blogs, videos] = useContext(ContentContext)
 
     const images = [
         {
@@ -143,14 +141,14 @@ export default function AutoCarousel({ theme }) {
         let max = Math.max(blogs.length, videos.length, images.length)
         let slides = []
 
-        let video = videos.filter(video => video.name == 'still special - visualised audio')[0]
+        // change to 'still special - visualised audio' in live
+        let video = videos.filter(video => video.name == 'still special - human interest story')[0]
         for (let x = 0; x < max; x++) {
             let randomBlogIndex = Math.floor(Math.random() * blogs.length)
             let randomImageIndex = Math.floor(Math.random() * images.length)
 
             slides.push(<CarouselSlide theme={theme} blog={blogs[randomBlogIndex]} video={video} image={images[randomImageIndex]} />)
         }
-
         return slides
     }
 

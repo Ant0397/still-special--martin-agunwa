@@ -1,29 +1,51 @@
-import React from 'react'
-import ReactPlayer from 'react-player'
-import { useHistory } from 'react-router'
+import React, { useContext } from 'react'
+import ReactPlayer from 'react-player/youtube'
+import { Link, useHistory } from 'react-router-dom'
+import { AnalyticsContext } from '../context/AnalyticsContext'
+import ContentService from '../services/ContentService'
+import AnalyticsBar from './AnalyticsBar'
 
 // carouselStrip prop applies classes to style component if it forms part of a carousel strip
-// type applies classes to style component depending on if it contains an image or video (images link to the article in question, videos are just playable)
-export default function ContentCard({ theme, carouselStrip, type, content, title }) {
+export default function ContentCard({ theme, carouselStrip, content }) {
+    const [analytics, setAnalytics] = useContext(AnalyticsContext)
     const history = useHistory()
 
-    function preventRightClick(e) {
+    // prevents page from reloading so context does not unmount
+    function redirect(e) {
         e.preventDefault()
+        return content.category == 'video' ? history.push('/campaign') : history.push(content.url)
     }
 
-    function redirect() {
-        type != 'video' ? history.push(content.url) : history.push('/campaigns')
+    function updateViews() {
+        ContentService.updateAnalytic(content.name, 'views', content.views + 1)
+            .then(err => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    setAnalytics(analytics.map(analytic => {
+                        return analytic.name == content.name
+                            ? {...analytic, views: analytic.views + 1}
+                            : analytic
+                    }))
+                }
+            })
     }
 
     return (
-        <div onClick={redirect} className={`${title ? "" : "content__card--no-title"} content__card ${theme ? "content__card--" + theme : ""} content__card--${type} ${carouselStrip ? "content__card--carousel" : ""}`}>
-           
-            { title ? <h2 className='content__card__heading'>{title}</h2> : null }
-            { type == 'video' ?
-                <ReactPlayer controls={true} onContextMenu={preventRightClick} className={`content__card__video ${carouselStrip ? "content__card__video--carousel" : ""}`} url={content} />
-            : 
-              <img className={`${title ? "" : "content__card__image--no-title"} content__card__image ${carouselStrip ? "content__card__image--carousel" : ""}`} src={content.src ? content.src : content.heroImgSrc} alt={content.alt ? content.alt : content.heroImgAlt} />
+        <Link onClick={redirect} className={`${content.shortTitle ? "" : "content__card--no-title"} content__card ${theme ? "content__card--" + theme : ""} ${carouselStrip ? "content__card--carousel" : ""} ${content.category == 'video' ? "content__card--video" : "content__card--image"}`}>
+            { content.shortTitle ? <h2 className='content__card__heading'>{content.shortTitle}</h2> : null }
+            { content.category == 'video' ?
+                <ReactPlayer onStart={updateViews} controls={true} onContextMenu={(e) => e.preventDefault()} className={`content__card__video ${carouselStrip ? "content__card__video--carousel" : ""}`} url={content.content} />
+            :
+                <img className={`${content.shortTitle ? "" : "content__card__image--no-title"} content__card__image ${carouselStrip ? "content__card__image--carousel" : ""}`} src={content.thumbnailImgSrc} alt={content.thumbnailImgAlt} />
             }
-        </div>
+
+            {/* if no title, do not display analytics as ContentCard is an image */}
+            { content.shortTitle ?
+                <AnalyticsBar content={content} disableClicks={carouselStrip || content.category != 'video' ? true : false} />
+            :
+                null
+            }
+        </Link>
     )
 }

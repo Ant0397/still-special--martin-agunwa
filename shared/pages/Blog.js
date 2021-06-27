@@ -4,10 +4,10 @@ import ContentBlock from '../components/ContentBlock'
 import ContentCard from '../components/ContentCard'
 import Article from '../components/Article'
 import { useRouteMatch } from 'react-router-dom'
-import { ArticleContext } from '../context/ArticleContext'
+import { ContentContext } from '../context/ContentContext'
 
 export default function Blog() {
-    const [caseStudies, setCaseStudies, blogs, setBlogs] = useContext(ArticleContext)
+    const [caseStudies, blogs] = useContext(ContentContext)
 
     const match = useRouteMatch()
 
@@ -19,7 +19,7 @@ export default function Blog() {
                     <div className="content__card__container">
                         { blogs ? 
                             blogs.map(blog => (
-                                <ContentCard type="image" title={blog.shortTitle } content={blog} />
+                                <ContentCard content={blog} />
                             ))   
                         :
                             null 
