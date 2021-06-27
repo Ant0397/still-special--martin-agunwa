@@ -420,14 +420,15 @@ a.social {
     height: calc(var(--content-card-image-carousel-height) * 2);
     box-shadow: none;
     margin: 0 1.5em;
-    height: 40vh;
+    height: 42vh;
 }
 
 .content__card--carousel > .content__card__heading {
     font-size: 1.5rem;
 }
 
-.content__card__image--carousel {
+.content__card__image--carousel,
+.content__card__video--carousel {
     width: var(--content-card-image-carousel-width) !important;
     height: var(--content-card-image-carousel-height) !important;
 }
@@ -486,8 +487,7 @@ a.social {
 }
 
 @media screen and (max-width: 420px) {
-    .content__card--carousel,
-    .content__card__image--carousel {
+    .content__card--carousel {
         width: 90% !important;
     }
 }
