@@ -562,6 +562,11 @@ a.social {
         height: 20vw;
     }
 
+    .content__card__video {
+        width: 30vw !important;
+        height: 20vw !important;
+    }
+
     .react-pdf__Page__canvas {
         width: 61vw !important;
         height: 79vw !important;
@@ -610,6 +615,11 @@ a.social {
     .content__card {
         min-width: 85vw;
     } 
+
+    .content__card__video {
+        width: 65vw !important;
+        height: 40vw !important;
+    }
 
     .content__card__image {
         width: 65vw;
