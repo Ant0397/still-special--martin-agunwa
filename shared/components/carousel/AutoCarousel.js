@@ -141,8 +141,7 @@ export default function AutoCarousel({ theme }) {
         let max = Math.max(blogs.length, videos.length, images.length)
         let slides = []
 
-        // change to 'still special - visualised audio' in live
-        let video = videos.filter(video => video.name == 'still special - human interest story')[0]
+        let video = videos.filter(video => video.name == 'still special - visualised audio')[0]
         for (let x = 0; x < max; x++) {
             let randomBlogIndex = Math.floor(Math.random() * blogs.length)
             let randomImageIndex = Math.floor(Math.random() * images.length)

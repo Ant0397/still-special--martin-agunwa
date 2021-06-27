@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 export const connectDB = async () => {
     try { 
-        const connection = await mongoose.connect(process.env.NODE_ENV === 'production' ? process.env.DB_STRING__LIVE : process.env.DB_STRING__STAGING, {
+        const connection = await mongoose.connect(process.env.DB_STRING, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })

@@ -37,7 +37,7 @@ export default function ContentCard({ theme, carouselStrip, content }) {
             { content.category == 'video' ?
                 <ReactPlayer onStart={updateViews} controls={true} onContextMenu={(e) => e.preventDefault()} className={`content__card__video ${carouselStrip ? "content__card__video--carousel" : ""}`} url={content.content} />
             :
-                <img className={`${content.shortTitle ? "" : "content__card__image--no-title"} content__card__image ${carouselStrip ? "content__card__image--carousel" : ""}`} src={content.thumbnailImgSrc} alt={content.thumbnailImgAlt} />
+                <img className={`${content.shortTitle ? "" : "content__card__image--no-title"} content__card__image ${carouselStrip ? "content__card__image--carousel" : ""}`} src={content.thumbnailImgSrc ? content.thumbnailImgSrc : content.src} alt={content.thumbnailImgAlt ? content.thumbnailImgAlt : content.alt} />
             }
 
             {/* if no title, do not display analytics as ContentCard is an image */}
