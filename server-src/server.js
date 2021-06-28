@@ -56,7 +56,6 @@ routes.forEach(route => {
     })
     if (route.hasNestedRoute) {
         app.get(`${route.path}/:id`, setHeaders, (req, res) => {
-            res.header('X-Powered-By', 'love')
             return sendApp(req, res)
         })
     }

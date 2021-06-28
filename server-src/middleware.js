@@ -22,7 +22,7 @@ export const recordExists = async (req, res, next) => {
 }
 
 export const setHeaders = (req, res, next) => {
-    res.header('X-Powered-By', 'love')
-    res.header('Content-Security-Policy', "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-src 'self' https://*.youtube.com;img-src 'self' data:;object-src 'none';script-src 'self' https://*.youtube.com;script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests")
+    res.setHeader('X-Powered-By', 'love')
+    res.setHeader('Content-Security-Policy', "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-src 'self' https://*.youtube.com;img-src 'self' data:;object-src 'none';script-src 'self' https://*.youtube.com;script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests")
     next()
 }
