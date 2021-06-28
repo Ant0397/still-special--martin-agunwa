@@ -13,6 +13,7 @@ export default function ContentCard({ theme, carouselStrip, content }) {
     // prevents page from reloading so context does not unmount
     function redirect(e) {
         e.preventDefault()
+        console.log(content.url)
         return content.category == 'video' ? history.push('/campaign') : history.push(content.url)
     }
 
@@ -32,7 +33,7 @@ export default function ContentCard({ theme, carouselStrip, content }) {
     }
 
     return (
-        <Link onClick={redirect} className={`${content.shortTitle ? "" : "content__card--no-title"} content__card ${theme ? "content__card--" + theme : ""} ${carouselStrip ? "content__card--carousel" : ""} ${content.category == 'video' ? "content__card--video" : "content__card--image"}`}>
+        <Link to={content.category == 'video' ? '/campaign' : content.url} onClick={redirect} className={`${content.shortTitle ? "" : "content__card--no-title"} content__card ${theme ? "content__card--" + theme : ""} ${carouselStrip ? "content__card--carousel" : ""} ${content.category == 'video' ? "content__card--video" : "content__card--image"}`}>
             { content.shortTitle ? <h2 className='content__card__heading'>{content.shortTitle}</h2> : null }
             { content.category == 'video' ?
                 <ReactPlayer onStart={updateViews} controls={true} onContextMenu={(e) => e.preventDefault()} className={`content__card__video ${carouselStrip ? "content__card__video--carousel" : ""}`} url={content.content} />
