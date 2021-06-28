@@ -14,7 +14,8 @@ export const routes = [
         text: 'Home',
         get component() { 
             return <Home theme={this.theme} />
-        }
+        },
+        hasLoader: true
     },
     {
         path: '/about',
@@ -34,6 +35,7 @@ export const routes = [
         component: <Campaigns />,
         theme: 'light',
         text: 'Campaigns',
+        hasLoader: true
     },
     {
         path: '/case-study',
@@ -41,6 +43,7 @@ export const routes = [
         theme: 'light',
         hasNestedRoute: true,
         text: 'Case Study',
+        hasLoader: true
     },
     {
         path: '/contact',
@@ -53,6 +56,7 @@ export const routes = [
         theme: 'light',
         hasNestedRoute: true,
         text: 'Blog',
+        hasLoader: true
     }
 ]
 

@@ -31,7 +31,9 @@
     "react-pdf": "^5.3.0",
     "react-player": "^2.9.0",
     "react-responsive-carousel": "^3.2.18",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react-spinners": "^0.11.0",
+    "uninstall": "0.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
