@@ -22,6 +22,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "express": "^4.17.1",
     "file-loader": "^6.2.0",
+    "helmet": "^4.6.0",
     "ignore-styles": "^5.0.1",
     "mammoth": "^1.4.17",
     "mongoose": "^5.12.14",
@@ -30,7 +31,9 @@
     "react-pdf": "^5.3.0",
     "react-player": "^2.9.0",
     "react-responsive-carousel": "^3.2.18",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react-spinners": "^0.11.0",
+    "uninstall": "0.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",

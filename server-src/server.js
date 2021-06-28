@@ -3,6 +3,7 @@ import express from 'express'
 import http from 'http'
 import path from 'path'
 import fs from 'fs'
+import helmet from 'helmet'
 import 'ignore-styles'
 
 import React from 'react'
@@ -12,9 +13,11 @@ import { StaticRouter } from 'react-router-dom'
 import { connectDB } from './config/db'
 import { routes } from '../shared/routes'
 import contentRouter from './api/contentRouter'
+import { setHeaders } from './middleware'
 
 // app init
 const app = express()
+app.use(helmet())
 app.use(express.json())
 
 // server
@@ -48,11 +51,12 @@ function sendApp(req, res) {
 
 // SPA routes
 routes.forEach(route => {
-    app.get(route.path, (req, res) => {
+    app.get(route.path, setHeaders, (req, res) => {
         return sendApp(req, res)
     })
     if (route.hasNestedRoute) {
-        app.get(`${route.path}/:id`, (req, res) => {
+        app.get(`${route.path}/:id`, setHeaders, (req, res) => {
+            res.header('X-Powered-By', 'love')
             return sendApp(req, res)
         })
     }
@@ -61,4 +65,4 @@ routes.forEach(route => {
 app.use(express.static('public'))
 
 // content router
-app.use('/api/content', contentRouter)
+app.use('/api/content', setHeaders, contentRouter)
