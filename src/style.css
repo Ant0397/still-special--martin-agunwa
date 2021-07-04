@@ -102,8 +102,21 @@ body {
     display: flex;
 }
 
+.social__container--share {
+    margin-top: 1em;
+    font-size: .85em;
+}
+
+.social.share {
+    margin-right: .75em;
+}
+
+.social__bar--share {
+    margin-top: .5em;
+}
+
 svg.social {
-    margin: 0 0em .75em 0.75em;
+    margin: 0 0 .75em 0.75em;
     cursor: pointer;
     transition-duration: 300ms;
 }
@@ -295,6 +308,7 @@ a.social {
     border-radius: 20px;
     box-shadow: 0 5px 10px black;
     width: 25vw;
+    height: 50vh;
 }
 
 .analytics__bar {

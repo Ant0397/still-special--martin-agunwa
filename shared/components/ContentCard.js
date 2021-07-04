@@ -4,9 +4,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { AnalyticsContext } from '../context/AnalyticsContext'
 import ContentService from '../services/ContentService'
 import AnalyticsBar from './AnalyticsBar'
-import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share'
-import { socials } from '../routes'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ShareBar from './ShareBar'
 
 // carouselStrip prop applies classes to style component if it forms part of a carousel strip
 export default function ContentCard({ theme, carouselStrip, content }) {
@@ -36,7 +34,7 @@ export default function ContentCard({ theme, carouselStrip, content }) {
     }
 
     return (
-        <>
+        <div>
             <Link to={content.category == 'video' ? '/campaign' : content.url} onClick={redirect} className={`${content.shortTitle ? "" : "content__card--no-title"} content__card ${theme ? "content__card--" + theme : ""} ${carouselStrip ? "content__card--carousel" : ""} ${content.category == 'video' ? "content__card--video" : "content__card--image"}`}>
                 { content.shortTitle ? <h2 className='content__card__heading'>{content.shortTitle}</h2> : null }
                 { content.category == 'video' ?
@@ -52,12 +50,11 @@ export default function ContentCard({ theme, carouselStrip, content }) {
                     null
                 }
             </Link>
-            <div>
-                <FacebookShareButton url={content.category == 'video' ? '/campaign' : 'https://martinagunwa.co.uk/' + content.url}>
-                    { content.url ? console.log(content.url) : null }
-                    <FontAwesomeIcon icon={socials[1].icon} size={socials[1].size} />
-                </FacebookShareButton>
-            </div>
-        </>
+            {/* { !carouselStrip && content.category != 'video' ?
+                <ShareBar contentType="content" contentUrl={'martinagunwa.co.uk' + content.url} />
+            :
+                null    
+            } */}
+        </div>
     )
 }

@@ -1,10 +1,14 @@
 import React, { useContext } from 'react'
+import { useRouteMatch } from 'react-router-dom'
 import ContentBlock from '../components/ContentBlock'
 import ContentCard from '../components/ContentCard'
+import ShareBar from '../components/ShareBar'
 import { ContentContext } from '../context/ContentContext'
 
 export default function Campaigns() {
     const [caseStudies, blogs, videos] = useContext(ContentContext)
+
+    const match = useRouteMatch()
 
     return (
         <ContentBlock>
@@ -23,6 +27,7 @@ export default function Campaigns() {
                     null
                 }
             </div>
+            { videos ? <ShareBar contentType="page" contentUrl={'martinagunwa.co.uk' + match.url} /> : null }
         </ContentBlock>
     )
 }
