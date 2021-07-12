@@ -14,7 +14,6 @@ export default function ContentCard({ theme, carouselStrip, content }) {
     // prevents page from reloading so context does not unmount
     function redirect(e) {
         e.preventDefault()
-        console.log(content.url)
         return content.category == 'video' ? history.push('/campaign') : history.push(content.url)
     }
 

@@ -24,7 +24,7 @@ export default function ShareBar({ contentUrl, id, contentType }) {
     }
 
     return (
-        <div id={id ? id : ''} className="social__container--share">
+        <div id={id ? id : ""} className="social__container--share">
             <p>Share this { contentType } </p>
             <div className="social__bar--share">
                 { socials.map(social => (
