@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { AnalyticsContext } from '../context/AnalyticsContext'
 import ContentService from '../services/ContentService'
 import AnalyticsBar from './AnalyticsBar'
+import ShareBar from './ShareBar'
 
 // carouselStrip prop applies classes to style component if it forms part of a carousel strip
 export default function ContentCard({ theme, carouselStrip, content }) {
@@ -13,7 +14,6 @@ export default function ContentCard({ theme, carouselStrip, content }) {
     // prevents page from reloading so context does not unmount
     function redirect(e) {
         e.preventDefault()
-        console.log(content.url)
         return content.category == 'video' ? history.push('/campaign') : history.push(content.url)
     }
 
@@ -33,20 +33,27 @@ export default function ContentCard({ theme, carouselStrip, content }) {
     }
 
     return (
-        <Link to={content.category == 'video' ? '/campaign' : content.url} onClick={redirect} className={`${content.shortTitle ? "" : "content__card--no-title"} content__card ${theme ? "content__card--" + theme : ""} ${carouselStrip ? "content__card--carousel" : ""} ${content.category == 'video' ? "content__card--video" : "content__card--image"}`}>
-            { content.shortTitle ? <h2 className='content__card__heading'>{content.shortTitle}</h2> : null }
-            { content.category == 'video' ?
-                <ReactPlayer onStart={updateViews} controls={true} onContextMenu={(e) => e.preventDefault()} className={`content__card__video ${carouselStrip ? "content__card__video--carousel" : ""}`} url={content.content} />
-            :
-                <img className={`${content.shortTitle ? "" : "content__card__image--no-title"} content__card__image ${carouselStrip ? "content__card__image--carousel" : ""}`} src={content.thumbnailImgSrc ? content.thumbnailImgSrc : content.src} alt={content.thumbnailImgAlt ? content.thumbnailImgAlt : content.alt} />
-            }
+        <div>
+            <Link to={content.category == 'video' ? '/campaign' : content.url} onClick={redirect} className={`${content.shortTitle ? "" : "content__card--no-title"} content__card ${theme ? "content__card--" + theme : ""} ${carouselStrip ? "content__card--carousel" : ""} ${content.category == 'video' ? "content__card--video" : "content__card--image"}`}>
+                { content.shortTitle ? <h2 className='content__card__heading'>{content.shortTitle}</h2> : null }
+                { content.category == 'video' ?
+                    <ReactPlayer onStart={updateViews} controls={true} onContextMenu={(e) => e.preventDefault()} className={`content__card__video ${carouselStrip ? "content__card__video--carousel" : ""}`} url={content.content} />
+                :
+                    <img className={`${content.shortTitle ? "" : "content__card__image--no-title"} content__card__image ${carouselStrip ? "content__card__image--carousel" : ""}`} src={content.thumbnailImgSrc ? content.thumbnailImgSrc : content.src} alt={content.thumbnailImgAlt ? content.thumbnailImgAlt : content.alt} />
+                }
 
-            {/* if no title, do not display analytics as ContentCard is an image */}
-            { content.shortTitle ?
-                <AnalyticsBar content={content} disableClicks={carouselStrip || content.category != 'video' ? true : false} />
+                {/* if no title, do not display analytics as ContentCard is an image */}
+                { content.shortTitle ?
+                    <AnalyticsBar content={content} disableClicks={carouselStrip || content.category != 'video' ? true : false} />
+                :
+                    null
+                }
+            </Link>
+            {/* { !carouselStrip && content.category != 'video' ?
+                <ShareBar contentType="content" contentUrl={'martinagunwa.co.uk' + content.url} />
             :
-                null
-            }
-        </Link>
+                null    
+            } */}
+        </div>
     )
 }

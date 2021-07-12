@@ -4,6 +4,7 @@ import { AnalyticsContext } from '../context/AnalyticsContext'
 import ContentService from '../services/ContentService'
 import AnalyticsBar from './AnalyticsBar'
 import ContentBlock from './ContentBlock'
+import ShareBar from './ShareBar'
 
 export default function Article({ content }) {
     const [analytics, setAnalytics] = useContext(AnalyticsContext)
@@ -12,7 +13,7 @@ export default function Article({ content }) {
     if (__isBrowser__) {
         useEffect(() => {
             window.scrollTo(0, 0)
-            document.querySelector('.content__block__body').insertAdjacentHTML('beforeend', content.content)
+            document.querySelector('#share').insertAdjacentHTML('beforebegin', content.content)
 
             ContentService.updateAnalytic(content.name, 'views', content.views + 1)
                 .then(err => {
@@ -42,6 +43,7 @@ export default function Article({ content }) {
             <p><i><strong>By Martin C. Agunwa</strong></i></p>
             <img className="hero" src={content.thumbnailImgSrc} alt={content.thumbnailImgAlt} />
             <AnalyticsBar content={content} />
+            <ShareBar id="share" contentType="content" contentUrl={'martinagunwa.co.uk' + content.url} />
         </ContentBlock>
     )
 }
